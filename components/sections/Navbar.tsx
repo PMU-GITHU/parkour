@@ -2,6 +2,7 @@ import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { TextEffect } from '../ui/text-effect'
+import Noise from '../ui/noise'
 
 
 const navitems = [
@@ -106,6 +107,13 @@ export default function Navbar() {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
                     >
+                        <Noise
+                            patternSize={250}
+                            patternScaleX={1}
+                            patternScaleY={1}
+                            patternRefreshInterval={2}
+                            patternAlpha={15}
+                        />
                         {
                             navitems.map((item) => (
                                 <motion.a

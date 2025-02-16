@@ -7,8 +7,9 @@ export default function Hero() {
     return (
         <div className='h-screen w-full relative  '>
             <Navbar />
-            {/* <video src="hero.mp4" autoPlay loop muted playsInline className='size-full object-cover' /> */}
-            <img src="/athletes/AAZ.jpg" alt="" className='size-full object-cover'/>
+            <img src="/athletes/AAZ.jpg"
+                loading='eager'
+                alt="" className='size-full object-cover' />
             <div className="absolute inset-0 from-black via-transparent bg-gradient-to-t to-transparent"></div>
             <div className='absolute w-full inset-0 flex flex-col justify-end pb-20 md:pb-40 px-4 md:px-8 lg:px-24 xl:px-[24rem] items-start text-white text-2xl md:text-4xl font-bold'>
                 <TextEffect
@@ -46,9 +47,9 @@ export default function Hero() {
                 >
                     The new era of Parkour
                 </TextEffect>
-                <TextEffect 
-                    per='char' 
-                    className='uppercase tracking-widest text-xl md:text-2xl lg:text-3xl' 
+                <TextEffect
+                    per='char'
+                    className='uppercase tracking-widest text-xl md:text-2xl lg:text-3xl'
                     delay={1.5}
                 >
                     Marrakesh 2025

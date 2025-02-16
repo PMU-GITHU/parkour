@@ -13,16 +13,7 @@ import {
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 
-const images = [
-    { src: "https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8极GVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80", title: "Runner" },
-    { src: "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3070&q=80", title: "Hiker" },
-    { src: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80", title: "Yoga" },
-    { src: "https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80", title: "Swimmer" },
-    { src: "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3070&q=80", title: "Hiker" },
-    { src: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80", title: "Yoga" },
-    { src: "https://images.unsplash.com/photo-1505144808419极1957a94ca61e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3070&极=80", title: "Hiker" },
-    { src: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80", title: "Yoga" },
-];
+ 
 
 export function Athletes() {
     const { ref, inView } = useInView({
@@ -32,8 +23,7 @@ export function Athletes() {
     const [api, setApi] = useState<CarouselApi>();
     const [current, setCurrent] = useState(0);
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-    const [hasAnimated, setHas极imated] = useState(false);
-
+ 
     useEffect(() => {
         if (!api) return;
 
@@ -69,10 +59,10 @@ export function Athletes() {
                 </TextEffect>
             </motion.div>
 
-            <motion.div className='flex flex-col items-center overflow-hidden justify-center px-4 md:px-20'>
+            <motion.div className='flex flex-col items-center overflow-hidden justify-center px-4 md:px-20 w-full max-w-screen'>
                 <Carousel
                     setApi={setApi}
-                    className="h-full w-full flex flex-col items-center justify-center"
+                    className="h-full w-[90vw] flex flex-col items-center justify-center"
                     opts={{
                         align: "center",
                         containScroll: "keepSnaps",
@@ -80,10 +70,10 @@ export function Athletes() {
                         inViewThreshold: 0.5
                     }}
                 >
-                    <CarouselContent className="h-full">
+                    <CarouselContent className="h-full w-full">
                         {athletes.map((image, index) => (
                             <CarouselItem
-                                className="h-1/2 basis-full sm:h-2/3 sm:basis-1/2 md:basis-1/3"
+                                className="h-1/2 basis-[85vw] sm:h-2/3 sm:basis-1/2 md:basis-1/3"
                                 key={index}
                                 id='athletes'
                                 onMouseEnter={() => {

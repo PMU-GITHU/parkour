@@ -1,6 +1,7 @@
 "use client";
 import AboutUS from "@/components/sections/AboutUS";
 import  { Athletes } from "@/components/sections/Athletes";
+import { CoachesPage } from "@/components/sections/Coachs";
 import Hero from "@/components/sections/Hero";
 import { Cursor } from '@/components/ui/cursor';
 import { PlusIcon } from "lucide-react";
@@ -98,7 +99,7 @@ export default function Home() {
       <Hero />
       <AboutUS />
       <Athletes />
-
+            <CoachesPage />
        
     </main>
   );
