@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import {
   motion,
   SpringOptions,
@@ -28,7 +28,7 @@ export type CursorProps = {
 export function Cursor({
   children,
   className,
-  springConfig,
+  springConfig = { duration: 0 },
   attachToParent,
   variants,
   transition,
@@ -39,6 +39,7 @@ export function Cursor({
   const cursorRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(!attachToParent);
 
+  // Initialize position
   useEffect(() => {
     if (typeof window !== 'undefined') {
       cursorX.set(window.innerWidth / 2);
@@ -46,64 +47,55 @@ export function Cursor({
     }
   }, []);
 
+  // Mouse movement handler
+  const updatePosition = useCallback((e: MouseEvent) => {
+    cursorX.set(e.clientX);
+    cursorY.set(e.clientY);
+    onPositionChange?.(e.clientX, e.clientY);
+  }, [cursorX, cursorY, onPositionChange]);
+
+  // Cursor visibility and event listeners
   useEffect(() => {
-    if (!attachToParent) {
-      document.body.style.cursor = 'none';
-    } else {
-      document.body.style.cursor = 'auto';
-    }
-
-    const updatePosition = (e: MouseEvent) => {
-      cursorX.set(e.clientX);
-      cursorY.set(e.clientY);
-      onPositionChange?.(e.clientX, e.clientY);
-    };
-
+    document.body.style.cursor = attachToParent ? 'auto' : 'none';
     document.addEventListener('mousemove', updatePosition);
-
+    
     return () => {
       document.removeEventListener('mousemove', updatePosition);
     };
-  }, [cursorX, cursorY, onPositionChange]);
+  }, [attachToParent, updatePosition]);
 
-  const cursorXSpring = useSpring(cursorX, springConfig || { duration: 0 });
-  const cursorYSpring = useSpring(cursorY, springConfig || { duration: 0 });
+  // Spring animations
+  const cursorXSpring = useSpring(cursorX, springConfig);
+  const cursorYSpring = useSpring(cursorY, springConfig);
+
+  // Parent element hover handling
+  const handleVisibilityChange = useCallback((visible: boolean) => {
+    setIsVisible(visible);
+  }, []);
 
   useEffect(() => {
-    const handleVisibilityChange = (visible: boolean) => {
-      setIsVisible(visible);
+    if (!attachToParent || !cursorRef.current) return;
+
+    const parent = cursorRef.current.parentElement;
+    if (!parent) return;
+
+    const handleMouseEnter = () => {
+      parent.style.cursor = 'none';
+      handleVisibilityChange(true);
+    };
+    const handleMouseLeave = () => {
+      parent.style.cursor = 'auto';
+      handleVisibilityChange(false);
     };
 
-    if (attachToParent && cursorRef.current) {
-      const parent = cursorRef.current.parentElement;
-      if (parent) {
-        parent.addEventListener('mouseenter', () => {
-          parent.style.cursor = 'none';
-          handleVisibilityChange(true);
-        });
-        parent.addEventListener('mouseleave', () => {
-          parent.style.cursor = 'auto';
-          handleVisibilityChange(false);
-        });
-      }
-    }
+    parent.addEventListener('mouseenter', handleMouseEnter);
+    parent.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
-      if (attachToParent && cursorRef.current) {
-        const parent = cursorRef.current.parentElement;
-        if (parent) {
-          parent.removeEventListener('mouseenter', () => {
-            parent.style.cursor = 'none';
-            handleVisibilityChange(true);
-          });
-          parent.removeEventListener('mouseleave', () => {
-            parent.style.cursor = 'auto';
-            handleVisibilityChange(false);
-          });
-        }
-      }
+      parent.removeEventListener('mouseenter', handleMouseEnter);
+      parent.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [attachToParent]);
+  }, [attachToParent, handleVisibilityChange]);
 
   return (
     <motion.div

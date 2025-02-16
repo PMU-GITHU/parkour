@@ -1,8 +1,9 @@
 "use client";
 import AboutUS from "@/components/sections/AboutUS";
-import  { Athletes } from "@/components/sections/Athletes";
+import { Athletes } from "@/components/sections/Athletes";
 import { CoachesPage } from "@/components/sections/Coachs";
 import Hero from "@/components/sections/Hero";
+import { MapView } from "@/components/sections/map-view";
 import { Cursor } from '@/components/ui/cursor';
 import { PlusIcon } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
@@ -18,15 +19,15 @@ export default function Home() {
 
     // Check all nav items from the navbar component
     const navItems = ['home', 'about-us', 'coaches', 'athletes', 'stunts', 'store', 'locations'];
-    
+
     for (const item of navItems) {
       const target = document.getElementById(`navitem-${item}`);
       if (target) {
         const rect = target.getBoundingClientRect();
-        const isInside = 
-          x >= rect.left && x <= rect.right && 
+        const isInside =
+          x >= rect.left && x <= rect.right &&
           y >= rect.top && y <= rect.bottom;
-        
+
         if (isInside) {
           isHoveringAny = true;
           currentHoveredItem = item;
@@ -39,10 +40,10 @@ export default function Home() {
     const navbarButton = document.getElementById('navbar-button');
     if (navbarButton) {
       const rect = navbarButton.getBoundingClientRect();
-      const isInside = 
-        x >= rect.left && x <= rect.right && 
+      const isInside =
+        x >= rect.left && x <= rect.right &&
         y >= rect.top && y <= rect.bottom;
-      
+
       if (isInside) {
         isHoveringAny = true;
         currentHoveredItem = 'navbar-button';
@@ -63,6 +64,7 @@ export default function Home() {
         }}
         springConfig={{
           bounce: 0.001,
+
         }}
         transition={{
           ease: 'easeInOut',
@@ -99,8 +101,8 @@ export default function Home() {
       <Hero />
       <AboutUS />
       <Athletes />
-            <CoachesPage />
-       
+      <CoachesPage />
+      <MapView />
     </main>
   );
 }
