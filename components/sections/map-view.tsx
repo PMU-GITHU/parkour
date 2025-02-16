@@ -5,7 +5,7 @@ import mapboxgl from "mapbox-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { MapPin } from "lucide-react"
+import { motion } from "framer-motion"
 
 // Sample locations data
 const locations = [
@@ -58,25 +58,31 @@ export function MapView() {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 h-[600px]">
+    <div className="grid grid-cols-1 md:grid-cols-3 bg-black gap-4 px-40 p-4 h-[600px]">
       {/* Map Container */}
       <div className="md:col-span-2">
         <Card className="h-full">
-          <div ref={mapContainer} className="w-full h-full rounded-lg" />
+          <div ref={mapContainer} className="w-full  h-full rounded-lg" />
         </Card>
       </div>
 
       {/* Locations List */}
       <div className="space-y-2">
-        <h2 className="text-xl font-bold mb-4">Locations</h2>
+        <h2 className="text-6xl text-white uppercase font-bold mb-14">Locations</h2>
         {locations.map((location) => (
           <Button
             key={location.id}
-            variant={activeLocation === location.id ? "default" : "outline"}
-            className="w-full justify-start gap-2"
+            variant={"ghost"}
+            className="w-full text-white uppercase text-4xl justify-start gap-2 hover:bg-transparent hover:text-orange-500"
             onClick={() => handleLocationClick(location)}
           >
-            <MapPin className="h-4 w-4" />
+            <motion.div 
+              initial={{ width: 0, height: 0 }}
+              whileHover={{ width: 10, height: 10 }}
+              animate={activeLocation === location.id ? { width: 100, height: 2 } : { width: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+              className="bg-orange-500 rounded-full"
+            />
             {location.name}
           </Button>
         ))}
