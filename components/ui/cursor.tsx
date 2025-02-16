@@ -45,7 +45,7 @@ export function Cursor({
       cursorX.set(window.innerWidth / 2);
       cursorY.set(window.innerHeight / 2);
     }
-  }, []);
+  }, [cursorY, cursorX]);
 
   // Mouse movement handler
   const updatePosition = useCallback((e: MouseEvent) => {

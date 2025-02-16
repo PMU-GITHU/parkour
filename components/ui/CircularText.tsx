@@ -46,7 +46,7 @@ const CircularText: React.FC<CircularTextProps> = ({
       scale: 1,
       transition: getTransition(spinDuration, currentRotation),
     });
-  }, [spinDuration, controls, onHover, text]);
+  }, [spinDuration, controls, onHover, text,currentRotation]);
 
   const handleHoverStart = () => {
     if (!onHover) return;
