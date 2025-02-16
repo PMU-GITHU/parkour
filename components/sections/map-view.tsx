@@ -6,6 +6,7 @@ import "mapbox-gl/dist/mapbox-gl.css"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import { DirectionsMenu } from "../directions-menu"
 
 // Sample locations data
 const locations = [
@@ -67,24 +68,30 @@ export function MapView() {
       </div>
 
       {/* Locations List */}
-      <div className="space-y-2">
+      <div className="space-y-5">
         <h2 className="text-6xl text-white uppercase font-bold mb-14">Locations</h2>
         {locations.map((location) => (
-          <Button
-            key={location.id}
-            variant={"ghost"}
-            className="w-full text-white uppercase text-4xl justify-start gap-2 hover:bg-transparent hover:text-orange-500"
-            onClick={() => handleLocationClick(location)}
-          >
-            <motion.div 
-              initial={{ width: 0, height: 0 }}
-              whileHover={{ width: 10, height: 10 }}
-              animate={activeLocation === location.id ? { width: 100, height: 2 } : { width: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="bg-orange-500 rounded-full"
-            />
-            {location.name}
-          </Button>
+          <div key={location.id} className="space-y-2">
+            <Button
+              variant={"ghost"}
+              className="w-full text-white uppercase text-4xl justify-start gap-2 hover:bg-transparent hover:text-orange-500"
+              onClick={() => handleLocationClick(location)}
+            >
+              <motion.div
+                initial={{ width: 0, height: 0 }}
+                whileHover={{ width: 10, height: 10 }}
+                animate={activeLocation === location.id ? { width: 100, height: 2 } : { width: 0, height: 0 }}
+                transition={{ duration: 0.2 }}
+                className="bg-orange-500 rounded-full"
+              />
+              {location.name}
+            </Button>
+            {activeLocation === location.id && (
+              <div className="pl-1 pb-8">
+                <DirectionsMenu coordinates={location.coordinates as [number, number]} locationName={location.name} />
+              </div>
+            )}
+          </div>
         ))}
       </div>
     </div>

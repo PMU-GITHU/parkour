@@ -66,14 +66,14 @@ export function Athletes() {
                     opts={{
                         align: "center",
                         containScroll: "keepSnaps",
-                        slidesToScroll: 1,
+                        slidesToScroll: 2,
                         inViewThreshold: 0.5
                     }}
                 >
                     <CarouselContent className="h-full w-full">
                         {athletes.map((image, index) => (
                             <CarouselItem
-                                className="h-1/2 basis-[85vw] sm:h-2/3 sm:basis-1/2 md:basis-1/3"
+                                className="h-1/2 basis-[20vw] sm:h-2/3 sm:basis-1/4 md:basis-1/5"
                                 key={index}
                                 id='athletes'
                                 onMouseEnter={() => {
@@ -85,7 +85,7 @@ export function Athletes() {
                                     className="w-full h-full flex items-center justify-center relative"
                                 >
                                     <Image
-                                        src={image.Picture || "https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8极GVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80"}
+                                        src={image.Picture || "/athletes/placeholder.png"}
                                         alt="Athlete"
                                         className={cn(
                                             "rounded-xl w-full h-full object-cover",

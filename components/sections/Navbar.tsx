@@ -48,9 +48,9 @@ export default function Navbar() {
                 transition={{ duration: 0.5, delay: 0.2 }}
             >
                 <motion.h1
-                    id='home'
+                 
 
-                    className='text-4xl cursor-none uppercase font-bold text-white'
+                    className='text-4xl  uppercase font-bold text-white'
                     initial={{ opacity: 0, rotateX: 90, y: 10 }}
                     animate={{ opacity: 1, rotateX: 0, y: 0 }}
                     transition={{ duration: 0.2, delay: 0.5 }}
@@ -59,11 +59,11 @@ export default function Navbar() {
                 </motion.h1>
 
                 <motion.button
-                    id='navbar-button'
+                  
                     aria-expanded={crossed}
                     onClick={() => setCrossedState((e) => !e)}
                     className={
-                        'flex aspect-square cursor-none z-50 h-fit select-none flex-col items-center justify-center rounded-full'
+                        'flex aspect-square z-50 h-fit select-none flex-col items-center justify-center rounded-full'
                     }
                     initial={{ opacity: 0, rotateX: 90, y: 10 }}
                     animate={{ opacity: 1, rotateX: 0, y: 0 }}
