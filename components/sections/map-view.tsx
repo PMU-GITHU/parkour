@@ -59,22 +59,22 @@ export function MapView() {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 bg-black gap-4 px-40 p-4 h-[600px]">
+    <div className="flex flex-col md:grid md:grid-cols-3 bg-black gap-4 px-4 lg:px-40 p-4 min-h-[600px]">
       {/* Map Container */}
-      <div className="md:col-span-2">
+      <div className="md:col-span-2 h-[400px] md:h-auto order-2 md:order-1">
         <Card className="h-full">
-          <div ref={mapContainer} className="w-full  h-full rounded-lg" />
+          <div ref={mapContainer} className="w-full h-full rounded-lg" />
         </Card>
       </div>
 
       {/* Locations List */}
-      <div className="space-y-5">
-        <h2 className="text-6xl text-white uppercase font-bold mb-14">Locations</h2>
+      <div className="space-y-5 order-1 md:order-2 px-4 md:px-0">
+        <h2 className="text-3xl md:text-4xl lg:text-6xl text-white uppercase font-bold mb-6 md:mb-14">Locations</h2>
         {locations.map((location) => (
           <div key={location.id} className="space-y-2">
             <Button
               variant={"ghost"}
-              className="w-full text-white uppercase text-4xl justify-start gap-2 hover:bg-transparent hover:text-orange-500"
+              className="w-full text-white uppercase text-lg md:text-2xl lg:text-4xl justify-start gap-2 hover:bg-transparent hover:text-orange-500"
               onClick={() => handleLocationClick(location)}
             >
               <motion.div
@@ -87,7 +87,7 @@ export function MapView() {
               {location.name}
             </Button>
             {activeLocation === location.id && (
-              <div className="pl-1 pb-8">
+              <div className="pl-1 pb-4 md:pb-8">
                 <DirectionsMenu coordinates={location.coordinates as [number, number]} locationName={location.name} />
               </div>
             )}
@@ -97,4 +97,3 @@ export function MapView() {
     </div>
   )
 }
-

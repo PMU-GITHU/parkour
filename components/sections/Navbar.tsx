@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { TextEffect } from '../ui/text-effect'
 import Noise from '../ui/noise'
-
 
 const navitems = [
     {
@@ -38,19 +37,33 @@ const navitems = [
 
 export default function Navbar() {
     const [crossed, setCrossedState] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > window.innerHeight) {
+                setIsScrolled(true)
+            } else {
+                setIsScrolled(false)
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     return (
         <>
             <motion.div
-                className='fixed text-2xl font-bold  text-white z-20 top-0 left-0 flex justify-around w-full p-4'
+                className={`fixed text-2xl font-bold text-white z-20 top-0 left-0 flex justify-around w-full p-4 transition-all duration-300 ${
+                    isScrolled ? 'backdrop-blur-lg bg-black/50' : 'bg-transparent'
+                }`}
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
             >
                 <motion.h1
-                 
-
-                    className='text-4xl  uppercase font-bold text-white'
+                    className='text-4xl uppercase font-bold text-white'
                     initial={{ opacity: 0, rotateX: 90, y: 10 }}
                     animate={{ opacity: 1, rotateX: 0, y: 0 }}
                     transition={{ duration: 0.2, delay: 0.5 }}
@@ -59,7 +72,6 @@ export default function Navbar() {
                 </motion.h1>
 
                 <motion.button
-                  
                     aria-expanded={crossed}
                     onClick={() => setCrossedState((e) => !e)}
                     className={

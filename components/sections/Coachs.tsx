@@ -77,7 +77,7 @@ const CoacheComponent = ({ coach, position }: {
                         </div>
                     </div>
                     <motion.div 
-                        className="bg-muted rounded-md overflow-hidden w-full aspect-square h-full flex-1"
+                        className="bg-muted rounded-md overflow-hidden w-full md:w-3/4 aspect-square h-full flex-1"
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={inView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}

@@ -9,11 +9,11 @@ import {
     CarouselApi,
     CarouselContent,
     CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
-
- 
 
 export function Athletes() {
     const { ref, inView } = useInView({
@@ -23,12 +23,13 @@ export function Athletes() {
     const [api, setApi] = useState<CarouselApi>();
     const [current, setCurrent] = useState(0);
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
- 
+    const [isManualScroll, setIsManualScroll] = useState(false);
+
     useEffect(() => {
         if (!api) return;
 
         const interval = setInterval(() => {
-            if (hoveredIndex !== null) return;
+            if (hoveredIndex !== null || isManualScroll) return;
 
             if (api.selectedScrollSnap() === api.scrollSnapList().length - 1) {
                 api.scrollTo(0);
@@ -40,7 +41,22 @@ export function Athletes() {
         }, 2000);
 
         return () => clearInterval(interval);
-    }, [api, hoveredIndex]);
+    }, [api, hoveredIndex, isManualScroll]);
+
+    useEffect(() => {
+        if (!api) return;
+
+        const handleScroll = () => {
+            setIsManualScroll(true);
+            setCurrent(api.selectedScrollSnap());
+            setTimeout(() => setIsManualScroll(false), 2000); // Reset after 2 seconds
+        };
+
+        api.on("select", handleScroll);
+        return () => {
+            api.off("select", handleScroll);
+        };
+    }, [api]);
 
     return (
         <div
@@ -66,14 +82,16 @@ export function Athletes() {
                     opts={{
                         align: "center",
                         containScroll: "keepSnaps",
-                        slidesToScroll: 2,
+                        slidesToScroll: 1,
                         inViewThreshold: 0.5
                     }}
                 >
+                    <CarouselPrevious className='bg-black' />
+                    <CarouselNext className='bg-black' />
                     <CarouselContent className="h-full w-full">
                         {athletes.map((image, index) => (
                             <CarouselItem
-                                className="h-1/2 basis-[20vw] sm:h-2/3 sm:basis-1/4 md:basis-1/5"
+                                className="h-[200px] basis-[50vw] cursor-pointer sm:h-[300px] sm:basis-[30vw] md:h-[400px] md:basis-[40vw] lg:basis-[20vw]"
                                 key={index}
                                 id='athletes'
                                 onMouseEnter={() => {
@@ -95,19 +113,17 @@ export function Athletes() {
                                         width={500}
                                     />
                                     <AnimatePresence>
-                                        {hoveredIndex === index && (
-                                            <motion.div
-                                                className="absolute inset-0 flex items-center justify-center"
-                                                initial={{ opacity: 0, y: -50 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: -50 }}
-                                                transition={{ duration: 0.3 }}
-                                            >
-                                                <h2 className="text-2xl md:text-4xl font-bold text-white">
-                                                    {image.Name}
-                                                </h2>
-                                            </motion.div>
-                                        )}
+                                        <motion.div
+                                            className="absolute inset-0 flex items-center justify-center"
+                                            initial={{ opacity: 0, y: -50 }}
+                                            animate={hoveredIndex === index ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
+                                            exit={{ opacity: 0, y: -50 }}
+                                            transition={{ duration: 0.3 }}
+                                        >
+                                            <h2 className="text-2xl md:text-4xl font-bold text-white text-center">
+                                                {image.Name}
+                                            </h2>
+                                        </motion.div>
                                     </AnimatePresence>
                                 </motion.div>
                             </CarouselItem>
@@ -118,8 +134,6 @@ export function Athletes() {
         </div>
     )
 }
-
-
 
 const athletes = [
     { ID: 1, Name: 'Es-saidi Saad', Age: '23 y.o', Description: "I’m a sports teacher with a master’s degree in Sport management at ENCG.\nI started parkour since 2019, now I’m a National pro parkour athlete with a parkour coaching certification.\nParkour, changed the way I see my lifestyle and made me realise that no matter what are your circumstances in your life you should keep your mind and your body balanced between taking risk and controlling it, so you can develop a better version of yourself.", Picture: "/athletes/Es-saidi Saad.JPG", MoveTrick: null },
