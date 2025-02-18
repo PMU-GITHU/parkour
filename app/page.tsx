@@ -1,4 +1,3 @@
-"use client";
 import AboutUS from "@/components/sections/AboutUS";
 import { Athletes } from "@/components/sections/Athletes";
 import { CoachesPage } from "@/components/sections/Coachs";

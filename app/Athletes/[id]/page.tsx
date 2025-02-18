@@ -1,64 +1,167 @@
+'use client'
+import * as React from 'react'
 import { Button } from '@/components/ui/button'
-import { Instagram } from 'lucide-react'
-import React from 'react'
+import People, { Person } from '@/lib/data'
+import { Instagram, Facebook, Mail } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Skeleton } from '@/components/ui/skeleton'
 
-export default function page() {
+export default function AthleteDetail({ params }: { params: Promise<{ id: string }> }) {
+    const resolvedParams = React.use(params)
+    const athlete = People.find((person) => person.ID === parseInt(resolvedParams.id))
+    const [isLoading, setIsLoading] = React.useState(true)
+
+    React.useEffect(() => {
+        if (athlete) {
+            setIsLoading(false)
+        }
+    }, [athlete])
+
+    if (!athlete) {
+        return <div className='min-h-screen bg-[#0e1011] text-white p-4 lg:p-0 flex items-center justify-center'>
+            <h1 className='text-2xl'>Athlete not found</h1>
+        </div>
+    }
+
     return (
-        <div className='h-screen w-screen bg-[#0e1011] relative text-white'>
-            <div className='fixed rounded-xl  w-[50%] top-2 left-1 overflow-hidden h-[98%] bg-white'>
-                <img
-                    className='w-full h-full object-cover  '
-                    src="/athletes\DSC06810.JPG" alt="" />
-                <svg width="212" height="101" viewBox="6 0 335 70" className='absolute -z-0 -bottom-1 -right-1 hidden lg:flex' xmlns="http://www.w3.org/2000/svg">
-                    <path d="M65.5 82C65.5 58.804 84.304 40 107.5 40H338.5V124H65.5V82V82Z" fill="#0a0a0a" />
-                    <path d="M0.668832 124.956C25.6775 123.331 54.7763 117.711 63.1222 94.0799C64.1256 91.2387 64.822 88.2173 65.0866 85.0311C67 62 66 123.994 66 123.994L0 125L0.668832 124.956Z" fill="#0a0a0a" />
-                    <path d="M300.176 40C319.991 40 336.395 25.0862 336.796 5.2752V5.2752C337.254 -17.3233 336.796 40 336.796 40H288H300.176Z" fill="#0a0a0a" />
-                </svg>
-                <div className='absolute text-white bottom-2 right-3   text-lg z-40  justify-center items-center pr-2 gap-x-2 pt-2 hidden lg:flex'>
-                    Anas Ait Zouinet
-                </div>
-            </div>
-            <div className='absolute rounded-xl overflow-y-auto flex flex-col gap-y-2 items-start justify-start  w-[49%] h-[98%] right-1 top-2    '>
-                <div className=' rounded-xl h-1/4 w-full flex gap-x-2'>
-                    <div className='bg-[#2b2d2e]  flex-col space-y-2 font-semibold flex rounded-xl w-2/3 h-full py-8 px-10'>
-                        <div className='flex justify-start items-center gap-x-2'>
-                            <img src="/athletes\DSC06810.JPG" alt="" className='h-20 w-20 object-cover rounded-full' />
-                            <div>
-                                <h1 className='text-2xl font-bold'>
-                                    Anas Ait Zouinet
-                                </h1>
-                                <span className='text-lg text-gray-300'>
-                                    Athlete
-                                </span>
+        <div className='min-h-screen bg-[#0e1011] text-white p-4 lg:p-0'>
+            {/* Image Section */}
+            <motion.div 
+                className='lg:fixed lg:w-[50%] lg:left-1 lg:top-2 lg:h-[98%] w-full h-[300px] md:h-[400px] mb-4 lg:mb-0 rounded-xl overflow-hidden bg-white relative'
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+            >
+                {isLoading ? (
+                    <Skeleton className="w-full h-full" />
+                ) : (
+                    <img
+                        className='w-full h-full object-cover'
+                        src={athlete.Picture || "/athletes/placeholder.png"}
+                        alt="Athlete"
+                    />
+                )}
+            </motion.div>
+
+            {/* Content Section */}
+            <motion.div 
+                className='lg:absolute lg:w-[49%] lg:right-1 lg:top-2 lg:h-[98%] w-full space-y-4 rounded-xl overflow-y-auto'
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+            >
+                {/* Profile Section */}
+                <div className='flex flex-col md:flex-row gap-4'>
+                    <motion.div 
+                        className='bg-[#2b2d2e] flex flex-col space-y-6 rounded-xl p-8 w-full md:w-[65%] lg:w-2/3'
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.4 , ease: "easeInOut" , type: "spring" }}
+                    >
+                        <div className='flex items-center gap-6'>
+                            {isLoading ? (
+                                <Skeleton className="h-24 w-24 rounded-full md:h-32 md:w-32" />
+                            ) : (
+                                <img
+                                    src={athlete.Picture || "/athletes/placeholder.png"}
+                                    alt="Profile"
+                                    className='h-24 w-24 aspect-square md:h-32 md:w-32 object-cover rounded-full'
+                                />
+                            )}
+                            <div className='flex flex-col gap-2'>
+                                {isLoading ? (
+                                    <>
+                                        <Skeleton className="h-8 w-48" />
+                                        <Skeleton className="h-6 w-32" />
+                                        <Skeleton className="h-6 w-32" />
+                                    </>
+                                ) : (
+                                    <>
+                                        <h1 className='text-2xl md:text-3xl font-bold'>
+                                            {athlete.Name}
+                                        </h1>
+                                        <span className='text-lg md:text-xl text-gray-300'>
+                                            {athlete.Age}
+                                        </span>
+                                        <span className='text-lg md:text-xl text-gray-300'>
+                                            {athlete.Type}
+                                        </span>
+                                    </>
+                                )}
                             </div>
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates.
-                        </p>
-                    </div>
-                    <div className='flex flex-col items-center justify-center gap-y-2  rounded-xl w-1/3 h-full'>
-                        <Button className='h-1/3 w-full flex-row-reverse bg-[#2b2d2e] items-center rounded-xl flex justify-around hover:bg-white hover:text-black  text-xl'>
-                            <Instagram size={24} />
-                            Instagram
-                        </Button>
+                    </motion.div>
 
-                        <Button className='h-1/3 w-full flex-row-reverse bg-[#2b2d2e] items-center rounded-xl flex justify-around hover:bg-white hover:text-black  text-xl'>
-                            <Instagram size={24} />
-                             Facebook
-                        </Button>
-                        <Button className='h-1/3 w-full flex-row-reverse bg-[#2b2d2e] items-center rounded-xl flex justify-around hover:bg-white hover:text-black  text-xl'>
-                            <Instagram size={24} />
-                            Contact Me
-                        </Button>
-                    </div>
+                    {/* Social Media Buttons */}
+                    <motion.div 
+                        className='flex flex-col gap-4 w-full md:w-[35%] lg:w-1/3'
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                    >
+                        {isLoading ? (
+                            <>
+                                <Skeleton className="h-14 w-full md:h-16" />
+                                <Skeleton className="h-14 w-full md:h-16" />
+                                <Skeleton className="h-14 w-full md:h-16" />
+                            </>
+                        ) : (
+                            <>
+                                <Button className='h-14 md:h-16 w-full flex items-center justify-center gap-2 bg-[#2b2d2e] rounded-xl hover:bg-white hover:text-black text-base md:text-lg'>
+                                    <Instagram size={20} />
+                                    Instagram
+                                </Button>
+                                <Button className='h-14 md:h-16 w-full flex items-center justify-center gap-2 bg-[#2b2d2e] rounded-xl hover:bg-white hover:text-black text-base md:text-lg'>
+                                    <Facebook size={20} />
+                                    Facebook
+                                </Button>
+                                <Button className='h-14 md:h-16 w-full flex items-center justify-center gap-2 bg-[#2b2d2e] rounded-xl hover:bg-white hover:text-black text-base md:text-lg'>
+                                    <Mail size={20} />
+                                    Contact Me
+                                </Button>
+                            </>
+                        )}
+                    </motion.div>
                 </div>
-                <div className='bg-[#2b2d2e] rounded-xl h-1/3 w-full'>
-                    about
-                </div>
-                <div className='bg-[#2b2d2e] w-full h-1/2 rounded-xl'>
-                    videos
-                </div>
-            </div>
+
+                {/* About Section */}
+                <motion.div 
+                    className='bg-[#2b2d2e] p-6 md:p-8 lg:p-14 space-y-4 rounded-xl'
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
+                >
+                    {isLoading ? (
+                        <>
+                            <Skeleton className="h-8 w-32" />
+                            <Skeleton className="h-24 w-full" />
+                        </>
+                    ) : (
+                        <>
+                            <h1 className='text-xl md:text-2xl font-bold'>
+                                About Me
+                            </h1>
+                            <p className='text-base md:text-lg'>
+                                {athlete.Description}
+                            </p>
+                        </>
+                    )}
+                </motion.div>
+
+                {/* Videos Section */}
+                <motion.div 
+                    className='bg-[#2b2d2e] w-full h-64 md:h-[350px] lg:h-[400px] rounded-xl flex items-center justify-center'
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.8 }}
+                >
+                    {isLoading ? (
+                        <Skeleton className="w-full h-full" />
+                    ) : (
+                        <span>Videos</span>
+                    )}
+                </motion.div>
+            </motion.div>
         </div>
     )
 }

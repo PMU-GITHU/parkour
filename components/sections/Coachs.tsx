@@ -5,7 +5,8 @@ import { TextEffect } from '../ui/text-effect'
 import { useInView } from 'react-intersection-observer'
 import { cn } from '@/lib/utils'
 import { Badge } from "@/components/ui/badge";
-
+import People, { Person } from '@/lib/data'
+ 
 export function CoachesPage() {
     const { ref, inView } = useInView({
         triggerOnce: true,
@@ -30,7 +31,7 @@ export function CoachesPage() {
             </motion.div>
 
             <div className="w-full flex-1">
-                {Coaches.map((coach, index) => (
+                {People.filter((e)=> e.Type === "Coach").map((coach, index) => (
                     <CoacheComponent coach={coach} key={coach.ID} position={index === 1 ? "left" : "right"} />
                 ))}
             </div>
@@ -39,7 +40,7 @@ export function CoachesPage() {
 }
 
 const CoacheComponent = ({ coach, position }: {
-    coach: typeof Coaches[number],
+    coach: Person,
     position: 'left' | 'right'
 }) => {
     const { ref, inView } = useInView({
@@ -82,7 +83,7 @@ const CoacheComponent = ({ coach, position }: {
                                     <p className={cn(
                                         "text-lg max-w-xl lg:max-w-xl leading-relaxed tracking-tight text-muted-foreground text-left transition-all"
                                     )}>
-                                        {coach.Description}
+                                        {coach.Description || "No description"}
                                     </p>
                                 </div>
                             )}
@@ -93,9 +94,4 @@ const CoacheComponent = ({ coach, position }: {
         </motion.div>
     );
 }
-
-const Coaches = [
-    { ID: 29, Name: 'Wassim Boulouk', Age: '30 y.o', Description: "With over a decade of experience in parkour and movement arts, I'm passionate about sharing my knowledge and helping others develop their skills. My approach focuses on building confidence, improving technique, and fostering a supportive community. I believe parkour is not just a physical discipline but a way to overcome challenges both on and off the training ground.", Picture: "/athletes/DSC06869.JPG" }
-    , { ID: 8, Name: 'Saad', Age: '19 y.o', Description: "I started practicing parkour when I was 10. Parkour has been a big part of my life, as it combines fun, creativity, and constant challenges. My main goals are to enjoy the sport, master new tricks, and eventually compete in competitions. For me, parkour isn't just about movement—it's about pushing limits and embracing freedom", Picture: null },
-    { ID: 19, Name: 'Mohamed Mouraoui', Age: '28 y.o', Description: "I started parkour at an early age. after years of practice I became a coach of parkour and gymnastic with clubs at the regional level. then I started to make my movement on the action movies where I became a stunt man on the movies as a creator action fighting. our community creating suitable environment for practicing parkour and exchanging information and skills among all the players of this group, especially the new generation.", Picture: "/athletes/DSC08756.JPG" },
-];
+ 
