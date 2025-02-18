@@ -49,24 +49,24 @@ const CoacheComponent = ({ coach, position }: {
 
     return (
         <motion.div 
-            className="w-full py-10 lg:py-20"
+            className="w-full py-6 lg:py-12"
             ref={ref}
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: "easeOut" }}
         >
             <div className="container mx-auto">
-                <div className={cn('flex flex-col lg:flex-row gap-8', position === 'right' && 'lg:flex-row-reverse')}>
-                    <div className="flex gap-4 flex-col justify-center flex-1">
+                <div className={cn('flex flex-col lg:flex-row gap-4', position === 'right' && 'lg:flex-row-reverse')}>
+                    <div className="flex gap-2 flex-col justify-center flex-1">
                         <div>
                             <Badge className='bg-orange-900'>Coach</Badge>
                         </div>
-                        <div className="flex gap-2 flex-col w-full">
-                            <h2 className="text-xl w-full md:text-5xl tracking-tighter lg:max-w-xl font-regular text-left">
+                        <div className="flex gap-1 flex-col w-full">
+                            <h2 className="text-xl w-full md:text-4xl tracking-tighter lg:max-w-xl font-regular text-left">
                                 {coach.Name}
                             </h2>
                             {coach.Description && (
-                                <div className="flex flex-col gap-2">
+                                <div className="flex flex-col gap-1">
                                     <p className={cn(
                                         "text-lg max-w-xl lg:max-w-xl leading-relaxed tracking-tight text-muted-foreground text-left transition-all"
                                     )}>
@@ -77,7 +77,7 @@ const CoacheComponent = ({ coach, position }: {
                         </div>
                     </div>
                     <motion.div 
-                        className="bg-muted rounded-md overflow-hidden w-full md:w-3/4 aspect-square h-full flex-1"
+                        className="bg-muted rounded-md overflow-hidden w-full   aspect-square h-full flex-1"
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={inView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}

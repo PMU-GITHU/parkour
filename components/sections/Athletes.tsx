@@ -63,19 +63,23 @@ export function Athletes() {
             className='w-full bg-black text-white text-4xl font-bold items-start gap-y-5 justify-center flex flex-col h-screen relative p-4 md:p-8'
             ref={ref}
         >
-            <motion.div className='flex items-start justify-start px-4 md:px-20'>
+            <motion.div className='flex items-center  justify-center w-full mx-auto px-4 md:px-20'>
                 <TextEffect
                     preset='fade-in-blur'
                     speedReveal={1.1}
                     speedSegment={0.3}
-                    className='uppercase text-4xl md:text-6xl lg:text-9xl'
+                    className='uppercase text-4xl md:text-6xl lg:text-8xl text-centre'
                     trigger={inView}
                 >
                     Athletes
                 </TextEffect>
             </motion.div>
 
-            <motion.div className='flex flex-col items-center overflow-hidden justify-center px-4 md:px-20 w-full max-w-screen'>
+            <motion.div className='flex flex-col items-center overflow-hidden justify-center px-4 md:px-20 w-full max-w-screen relative'>
+                {/* Gradient overlays */}
+                <div className="absolute inset-y-0 left-0 xl:left-5 w-1/3 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 xl:right-5 w-1/3 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+                
                 <Carousel
                     setApi={setApi}
                     className="h-full w-[90vw] flex flex-col items-center justify-center"
@@ -86,12 +90,18 @@ export function Athletes() {
                         inViewThreshold: 0.5
                     }}
                 >
-                    <CarouselPrevious className='bg-black' />
-                    <CarouselNext className='bg-black' />
+                    {/* Buttons positioned absolutely on top of gradients */}
+                    <div className="absolute top-1/2 -translate-y-1/2 left-14 lg:left-16 xl:left-4 z-20">
+                        <CarouselPrevious className='bg-black hover:text-black hover:bg-white w-12 h-12' />
+                    </div>
+                    <div className="absolute top-1/2 -translate-y-1/2 right-14 lg:right-16 xl:right-4 z-20">
+                        <CarouselNext className='bg-black hover:text-black hover:bg-white w-12 h-12' />
+                    </div>
+                    
                     <CarouselContent className="h-full w-full">
                         {athletes.map((image, index) => (
                             <CarouselItem
-                                className="h-[200px] basis-[50vw] cursor-pointer sm:h-[300px] sm:basis-[30vw] md:h-[400px] md:basis-[40vw] lg:basis-[20vw]"
+                                className="h-[200px] basis-[50vw] cursor-pointer sm:h-[250px] sm:basis-[30vw] md:h-[300px] md:basis-[25vw] lg:basis-[20vw]"
                                 key={index}
                                 id='athletes'
                                 onMouseEnter={() => {
@@ -120,7 +130,7 @@ export function Athletes() {
                                             exit={{ opacity: 0, y: -50 }}
                                             transition={{ duration: 0.3 }}
                                         >
-                                            <h2 className="text-2xl md:text-4xl font-bold text-white text-center">
+                                            <h2 className="text-2xl md:text-3xl font-bold text-white text-center">
                                                 {image.Name}
                                             </h2>
                                         </motion.div>
