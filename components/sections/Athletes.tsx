@@ -14,6 +14,16 @@ import {
 } from "@/components/ui/carousel";
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
+import {
+    MorphingDialog,
+    MorphingDialogTrigger,
+    MorphingDialogContent,
+    MorphingDialogTitle,
+    MorphingDialogImage,
+    MorphingDialogSubtitle,
+    MorphingDialogClose,
+    MorphingDialogContainer,
+} from '@/components/ui/morphing-dialog';
 
 export function Athletes() {
     const { ref, inView } = useInView({
@@ -79,7 +89,7 @@ export function Athletes() {
                 {/* Gradient overlays */}
                 <div className="absolute inset-y-0 left-0 xl:left-5 w-1/3 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
                 <div className="absolute inset-y-0 right-0 xl:right-5 w-1/3 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
-                
+
                 <Carousel
                     setApi={setApi}
                     className="h-full w-[90vw] flex flex-col items-center justify-center"
@@ -97,7 +107,7 @@ export function Athletes() {
                     <div className="absolute top-1/2 -translate-y-1/2 right-14 lg:right-16 xl:right-4 z-20">
                         <CarouselNext className='bg-black hover:text-black hover:bg-white w-12 h-12' />
                     </div>
-                    
+
                     <CarouselContent className="h-full w-full">
                         {athletes.map((image, index) => (
                             <CarouselItem
@@ -109,6 +119,7 @@ export function Athletes() {
                                 }}
                                 onMouseLeave={() => setHoveredIndex(null)}
                             >
+                              
                                 <motion.div
                                     className="w-full h-full flex items-center justify-center relative"
                                 >
@@ -136,6 +147,7 @@ export function Athletes() {
                                         </motion.div>
                                     </AnimatePresence>
                                 </motion.div>
+                              
                             </CarouselItem>
                         ))}
                     </CarouselContent>
@@ -144,7 +156,7 @@ export function Athletes() {
         </div>
     )
 }
-
+ 
 const athletes = [
     { ID: 1, Name: 'Es-saidi Saad', Age: '23 y.o', Description: "I’m a sports teacher with a master’s degree in Sport management at ENCG.\nI started parkour since 2019, now I’m a National pro parkour athlete with a parkour coaching certification.\nParkour, changed the way I see my lifestyle and made me realise that no matter what are your circumstances in your life you should keep your mind and your body balanced between taking risk and controlling it, so you can develop a better version of yourself.", Picture: "/athletes/Es-saidi Saad.JPG", MoveTrick: null },
     { ID: 2, Name: 'Abderrahmane Lafraigui', Age: '17 y.o', Description: "I am a 17-year-old athlete from the vibrant city of Marrakech, known as the 'Red City.' I started practicing parkour in 2020, and it has become an essential part of my life. Parkour has not only helped me grow physically but has also shaped my mindset, allowing me to see life from a new perspective. This sport is a significant part of who I am, and it will always remain that way.", Picture: "/athletes/DSC06860.JPG", MoveTrick: null },

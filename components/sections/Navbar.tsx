@@ -132,7 +132,7 @@ export default function Navbar() {
                                     id={`navitem-${item.name.toLowerCase().replace(' ', '-')}`}
                                     key={item.name}
                                     href={item.link}
-                                    className="text-white cursor-none text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase hover:text-orange-500 duration-500 ease-in-out px-4 py-2 sm:px-6 sm:py-3"
+                                    className="text-white  text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase hover:text-orange-500 duration-500 ease-in-out px-4 py-2 sm:px-6 sm:py-3"
                                 >
                                     <TextEffect preset='fade-in-blur' speedReveal={1.1} speedSegment={0.3} >
                                         {item.name}

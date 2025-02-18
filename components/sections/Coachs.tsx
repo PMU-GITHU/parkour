@@ -48,7 +48,7 @@ const CoacheComponent = ({ coach, position }: {
     });
 
     return (
-        <motion.div 
+        <motion.div
             className="w-full py-6 lg:py-12"
             ref={ref}
             initial={{ opacity: 0, y: 50 }}
@@ -57,7 +57,7 @@ const CoacheComponent = ({ coach, position }: {
         >
             <div className="container mx-auto">
                 <div className={cn('flex flex-col lg:flex-row items-center justify-center gap-4', position === 'right' && 'lg:flex-row-reverse')}>
-                    <motion.div 
+                    <motion.div
                         className="bg-muted rounded-md overflow-hidden lg:w-1/3 aspect-square order-first lg:order-none"
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -95,7 +95,7 @@ const CoacheComponent = ({ coach, position }: {
 }
 
 const Coaches = [
-    { ID: 8, Name: 'Saad', Age: '19 y.o', Description: "I started practicing parkour when I was 10. Parkour has been a big part of my life, as it combines fun, creativity, and constant challenges. My main goals are to enjoy the sport, master new tricks, and eventually compete in competitions. For me, parkour isn't just about movement—it's about pushing limits and embracing freedom", Picture: null },
-    { ID: 19, Name: 'Mohamed Mouraoui', Age: '28 y.o', Description: "I started parkour at an early age. after years of practice I became a coach of parkour and gymnastic with clubs at the regional level. then I started to make my movement on the action movies where I became a stunt man on the movies as a creator action fighting. our community creating suitable environment for practicing parkour and exchanging information and skills among all the players of this group, especially the new generation.", Picture: "/athletes/DSC08756.JPG" },
     { ID: 29, Name: 'Wassim Boulouk', Age: '30 y.o', Description: "With over a decade of experience in parkour and movement arts, I'm passionate about sharing my knowledge and helping others develop their skills. My approach focuses on building confidence, improving technique, and fostering a supportive community. I believe parkour is not just a physical discipline but a way to overcome challenges both on and off the training ground.", Picture: "/athletes/DSC06869.JPG" }
+    , { ID: 8, Name: 'Saad', Age: '19 y.o', Description: "I started practicing parkour when I was 10. Parkour has been a big part of my life, as it combines fun, creativity, and constant challenges. My main goals are to enjoy the sport, master new tricks, and eventually compete in competitions. For me, parkour isn't just about movement—it's about pushing limits and embracing freedom", Picture: null },
+    { ID: 19, Name: 'Mohamed Mouraoui', Age: '28 y.o', Description: "I started parkour at an early age. after years of practice I became a coach of parkour and gymnastic with clubs at the regional level. then I started to make my movement on the action movies where I became a stunt man on the movies as a creator action fighting. our community creating suitable environment for practicing parkour and exchanging information and skills among all the players of this group, especially the new generation.", Picture: "/athletes/DSC08756.JPG" },
 ];
