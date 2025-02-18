@@ -56,8 +56,20 @@ const CoacheComponent = ({ coach, position }: {
             transition={{ duration: 0.6, ease: "easeOut" }}
         >
             <div className="container mx-auto">
-                <div className={cn('flex flex-col lg:flex-row gap-4', position === 'right' && 'lg:flex-row-reverse')}>
-                    <div className="flex gap-2 flex-col justify-center flex-1">
+                <div className={cn('flex flex-col lg:flex-row items-center justify-center gap-4', position === 'right' && 'lg:flex-row-reverse')}>
+                    <motion.div 
+                        className="bg-muted rounded-md overflow-hidden lg:w-1/3 aspect-square order-first lg:order-none"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={inView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                    >
+                        <img
+                            src={coach.Picture || "/athletes/placeholder.png"}
+                            alt={coach.Name}
+                            className='object-cover object-center w-full h-full'
+                        />
+                    </motion.div>
+                    <div className="flex gap-2 flex-col justify-center">
                         <div>
                             <Badge className='bg-orange-900'>Coach</Badge>
                         </div>
@@ -76,18 +88,6 @@ const CoacheComponent = ({ coach, position }: {
                             )}
                         </div>
                     </div>
-                    <motion.div 
-                        className="bg-muted rounded-md overflow-hidden w-full   aspect-square h-full flex-1"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={inView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                    >
-                        <img
-                            src={coach.Picture || "/athletes/placeholder.png"}
-                            alt={coach.Name}
-                            className='object-cover object-center w-full h-full'
-                        />
-                    </motion.div>
                 </div>
             </div>
         </motion.div>
