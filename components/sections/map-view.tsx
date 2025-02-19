@@ -11,16 +11,16 @@ import { LocationsIMages } from "../location-images"
 
 // Sample locations data
 const locations = [
-  { id: 1, name: "Eiffel Tower", coordinates: [2.2945, 48.8584], image:  "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  },
-  { id: 2, name: "Colosseum", coordinates: [12.4924, 41.8902], image:  "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  },
-  { id: 3, name: "Sagrada Familia", coordinates: [2.1743, 41.4036], image:  "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  },
-  { id: 4, name: "Big Ben", coordinates: [-0.1276, 51.5007], image:  "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  },
+  { id: 1, name: "Eiffel Tower", coordinates: [2.2945, 48.8584], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 2, name: "Colosseum", coordinates: [12.4924, 41.8902], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 3, name: "Sagrada Familia", coordinates: [2.1743, 41.4036], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 4, name: "Big Ben", coordinates: [-0.1276, 51.5007], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
 ]
 
 export function MapView() {
   const mapContainer = useRef<HTMLDivElement>(null)
   const map = useRef<mapboxgl.Map | null>(null)
-  const marker = useRef<mapboxgl.Marker | null>(null)
+  const markers = useRef<mapboxgl.Marker[]>([])
   const [activeLocation, setActiveLocation] = useState<number | null>(null)
 
   useEffect(() => {
@@ -31,25 +31,38 @@ export function MapView() {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v12",
-      center: [2.2945, 48.8584], // Default to first location
-      zoom: 4,
+      center: [-8.066083, 31.634361],
+      zoom: 10,
     })
 
-    // Create initial marker
-    marker.current = new mapboxgl.Marker().setLngLat([2.2945, 48.8584]).addTo(map.current)
+    // Create markers for each location
+    markers.current = locations.map(location => {
+      const marker = new mapboxgl.Marker()
+        .setLngLat(location.coordinates as [number, number])
+        .addTo(map.current!);
+      return marker;
+    });
 
     return () => {
       map.current?.remove()
+      markers.current.forEach(marker => marker.remove())
     }
   }, [])
 
   const handleLocationClick = (location: (typeof locations)[0]) => {
-    if (!map.current || !marker.current) return
+    if (!map.current) return
 
     setActiveLocation(location.id)
 
-    // Move marker to new location
-    marker.current.setLngLat(location.coordinates as [number, number])
+    // Highlight the selected marker
+    markers.current.forEach((marker, index) => {
+      const element = marker.getElement()
+      if (index + 1 === location.id) {
+        element.style.transform = 'scale(1.2)'
+      } else {
+        element.style.transform = 'scale(1)'
+      }
+    })
 
     // Fly to location
     map.current.flyTo({
@@ -61,8 +74,8 @@ export function MapView() {
 
   return (
     <div
-    id="locations"
-    className="flex flex-col md:grid md:grid-cols-3 bg-black gap-4 px-4 lg:px-40 p-4 min-h-[600px]">
+      id="locations"
+      className="flex flex-col md:grid md:grid-cols-3 bg-black gap-4 px-4 lg:px-40 p-4 min-h-[600px]">
       {/* Map Container */}
       <div className="md:col-span-2 h-[400px] md:h-auto order-2 md:order-1">
         <Card className="h-full">
@@ -92,7 +105,7 @@ export function MapView() {
             {activeLocation === location.id && (
               <div className="pl-1 pb-4 w-full md:pb-8">
                 <DirectionsMenu coordinates={location.coordinates as [number, number]} locationName={location.name} />
-                <LocationsIMages location={{...location, coordinates: location.coordinates as [number, number]}} />
+                <LocationsIMages location={{ ...location, coordinates: location.coordinates as [number, number] }} />
               </div>
             )}
           </div>

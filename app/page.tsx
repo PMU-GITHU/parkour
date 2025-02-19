@@ -5,6 +5,8 @@ import { Cta } from "@/components/sections/CTA";
 import Hero from "@/components/sections/Hero";
 import { MapView } from "@/components/sections/map-view";
 import Merch from "@/components/sections/Merch";
+import { Partners } from "@/components/sections/Partners";
+import Tutoring from "@/components/sections/Tuturing";
 
 
 export default function Home() {
@@ -12,12 +14,14 @@ export default function Home() {
   return (
     <main className="">
       <Hero />
+      <Partners />
       <AboutUS />
       <Athletes />
       <CoachesPage />
       <Merch />
       <MapView />
       <Cta />
+      <Tutoring />
     </main>
   );
 }
