@@ -7,13 +7,14 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { DirectionsMenu } from "../directions-menu"
+import { LocationsIMages } from "../location-images"
 
 // Sample locations data
 const locations = [
-  { id: 1, name: "Eiffel Tower", coordinates: [2.2945, 48.8584] },
-  { id: 2, name: "Colosseum", coordinates: [12.4924, 41.8902] },
-  { id: 3, name: "Sagrada Familia", coordinates: [2.1743, 41.4036] },
-  { id: 4, name: "Big Ben", coordinates: [-0.1276, 51.5007] },
+  { id: 1, name: "Eiffel Tower", coordinates: [2.2945, 48.8584], image:  "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  },
+  { id: 2, name: "Colosseum", coordinates: [12.4924, 41.8902], image:  "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  },
+  { id: 3, name: "Sagrada Familia", coordinates: [2.1743, 41.4036], image:  "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  },
+  { id: 4, name: "Big Ben", coordinates: [-0.1276, 51.5007], image:  "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  },
 ]
 
 export function MapView() {
@@ -59,7 +60,9 @@ export function MapView() {
   }
 
   return (
-    <div className="flex flex-col md:grid md:grid-cols-3 bg-black gap-4 px-4 lg:px-40 p-4 min-h-[600px]">
+    <div
+    id="locations"
+    className="flex flex-col md:grid md:grid-cols-3 bg-black gap-4 px-4 lg:px-40 p-4 min-h-[600px]">
       {/* Map Container */}
       <div className="md:col-span-2 h-[400px] md:h-auto order-2 md:order-1">
         <Card className="h-full">
@@ -68,7 +71,7 @@ export function MapView() {
       </div>
 
       {/* Locations List */}
-      <div className="space-y-5 order-1 md:order-2 px-4 md:px-0">
+      <div className="space-y-5 order-1 w-full md:order-2 px-4 md:px-0">
         <h2 className="text-3xl md:text-4xl lg:text-6xl text-white uppercase font-bold mb-6 md:mb-14">Locations</h2>
         {locations.map((location) => (
           <div key={location.id} className="space-y-2">
@@ -87,8 +90,9 @@ export function MapView() {
               {location.name}
             </Button>
             {activeLocation === location.id && (
-              <div className="pl-1 pb-4 md:pb-8">
+              <div className="pl-1 pb-4 w-full md:pb-8">
                 <DirectionsMenu coordinates={location.coordinates as [number, number]} locationName={location.name} />
+                <LocationsIMages location={{...location, coordinates: location.coordinates as [number, number]}} />
               </div>
             )}
           </div>

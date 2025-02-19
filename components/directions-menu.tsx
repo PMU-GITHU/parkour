@@ -25,14 +25,14 @@ export function DirectionsMenu({ coordinates: [lng, lat], locationName }: Direct
     return (
 
         <Button
-        onClick={() => openDirections(mapLinks.google)}
-        variant="ghost" size="sm" className="gap-x-2 group text-white text-xl flex justify-center items-center 
+            onClick={() => openDirections(mapLinks.google)}
+            variant="ghost" size="sm" className="gap-x-2 group text-white text-xl flex justify-center items-center 
                     hover:text-orange-500
                 hover:bg-transparent">
             <motion.div
                 initial={{ width: 0, height: 0 }}
                 whileHover={{ width: 10, height: 10 }}
-                animate={lng && lat ? { width: 155, height: 2 } : { width: 0, height: 0 }}
+                animate={lng && lat ? { width: 135, height: 2 } : { width: 0, height: 0 }}
                 transition={{ duration: 0.2 }}
                 className="bg-orange-500 rounded-full"
             />

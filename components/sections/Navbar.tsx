@@ -83,7 +83,8 @@ export default function Navbar() {
                 transition={{ duration: 0.5, delay: 0.2 }}
             >
                 <motion.h1
-                    className='text-4xl uppercase font-bold text-white'
+                    onClick={() => window.location.href = '/'}
+                    className='text-4xl cursor-pointer uppercase font-bold text-white'
                     initial={{ opacity: 0, rotateX: 90, y: 10 }}
                     animate={{ opacity: 1, rotateX: 0, y: 0 }}
                     transition={{ duration: 0.2, delay: 0.5 }}
