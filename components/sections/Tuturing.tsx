@@ -1,6 +1,5 @@
 "use client"
 import React from 'react'
-import { HoverVideoPlayer } from '../ui/VideoHover'
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 export default function Tutoring() {
