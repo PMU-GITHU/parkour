@@ -15,10 +15,13 @@ export function CoachesPage() {
 
     return (
         <div
+        id='coaches'
+
             className='w-full bg-black text-white text-4xl font-bold items-start justify-center flex flex-col min-h-screen relative p-4 md:p-8'
             ref={ref}
         >
-            <motion.div className='flex items-center justify-center mx-auto px-4 md:px-40'>
+            <motion.div
+            className='flex items-center justify-center mx-auto px-4 md:px-40'>
                 <TextEffect
                     preset='fade-in-blur'
                     speedReveal={1.1}

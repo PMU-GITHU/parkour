@@ -70,3 +70,18 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+ 
+/* Inverse text selection */
+::selection {
+  background-color: #ffffff;
+  color: #0a0a0a;
+}
+
+ 

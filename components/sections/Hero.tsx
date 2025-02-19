@@ -7,7 +7,9 @@ export default function Hero() {
     return (
         <div className='h-screen w-full relative  '>
             <Navbar />
-            <img src="/athletes/AAZ.jpg"
+            <img
+            id='hero'
+            src="/athletes/AAZ.jpg"
                 loading='eager'
                 alt="" className='size-full object-cover' />
             <div className="absolute inset-0 from-black via-transparent bg-gradient-to-t to-transparent"></div>

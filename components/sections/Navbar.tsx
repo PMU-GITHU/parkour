@@ -11,15 +11,15 @@ const navitems = [
     },
     {
         name: 'About us',
-        link: '/about'
+        link: '/#about-us'
     },
     {
         name: 'coaches',
-        link: '/coaches'
+        link: '/#coaches'
     },
     {
         name: 'Athletes',
-        link: '/athletes'
+        link: '/#athletes'
     },
     {
         name: "Stunts",
@@ -27,11 +27,11 @@ const navitems = [
     },
     {
         name: 'Store',
-        link: '/store'
+        link: '/#store'
     },
     {
         name: 'Locations',
-        link: '/locations'
+        link: '/#locations'
     }
 ]
 
@@ -52,11 +52,31 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
+    const handleLinkClick = (e: React.MouseEvent, link: string) => {
+        e.preventDefault()
+        setCrossedState(false)
+        
+        if (link.startsWith('/#')) {
+            const targetId = link.split('#')[1]
+            const targetElement = document.getElementById(targetId)
+            if (targetElement) {
+                setTimeout(() => {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    })
+                }, 200) // Delay to allow menu to close first
+            }
+        } else {
+            window.location.href = link
+        }
+    }
+
     return (
         <>
             <motion.div
-                className={`fixed text-2xl font-bold text-white z-20 top-0 left-0 flex justify-around w-full p-4 transition-all duration-300 ${
-                    isScrolled ? 'backdrop-blur-lg bg-black/50' : 'bg-transparent'
+                className={`fixed text-2xl font-bold text-white z-50 top-0 left-0 flex justify-around w-full p-4 transition-all duration-300 ${
+                    isScrolled && !crossed ? 'backdrop-blur-lg bg-black/50' : 'bg-transparent'
                 }`}
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -113,7 +133,7 @@ export default function Navbar() {
             <AnimatePresence>
                 {crossed && (
                     <motion.div
-                        className="fixed inset-0 flex-col bg-black z-10 flex items-center justify-center"
+                        className="fixed inset-0 flex-col bg-black z-40 flex items-center justify-center"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -132,7 +152,8 @@ export default function Navbar() {
                                     id={`navitem-${item.name.toLowerCase().replace(' ', '-')}`}
                                     key={item.name}
                                     href={item.link}
-                                    className="text-white  text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase hover:text-orange-500 duration-500 ease-in-out px-4 py-2 sm:px-6 sm:py-3"
+                                    className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase hover:text-orange-500 duration-500 ease-in-out px-4 py-2 sm:px-6 sm:py-3"
+                                    onClick={(e) => handleLinkClick(e, item.link)}
                                 >
                                     <TextEffect preset='fade-in-blur' speedReveal={1.1} speedSegment={0.3} >
                                         {item.name}

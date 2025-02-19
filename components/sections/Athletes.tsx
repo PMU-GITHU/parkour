@@ -41,7 +41,9 @@ export function Athletes() {
             className='w-full bg-black text-white text-4xl font-bold items-start gap-y-5 justify-center flex flex-col h-screen relative p-4 md:p-8'
             ref={ref}
         >
-            <motion.div className='flex items-center  justify-center w-full mx-auto px-4 md:px-20'>
+            <motion.div
+            id='athletes'
+            className='flex items-center  justify-center w-full mx-auto px-4 md:px-20'>
                 <TextEffect
                     preset='fade-in-blur'
                     speedReveal={1.1}

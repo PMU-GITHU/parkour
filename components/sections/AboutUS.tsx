@@ -12,6 +12,8 @@ export default function AboutUS() {
 
     return (
         <div
+        id='about-us'
+
             className='w-full bg-black text-white text-4xl font-bold flex flex-col lg:flex-row h-auto lg:h-screen p-4 lg:p-8'
             ref={ref}
         >
