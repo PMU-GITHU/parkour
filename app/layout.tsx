@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Mona_Sans } from "next/font/google";
 import "./globals.css";
-import { CustomCursor } from "@/components/ui/costum-cursor";
+import { Footer1 } from "@/components/sections/Footer";
 
 
 
@@ -27,7 +27,7 @@ export default function RootLayout({
       >
 
         {children}
-        <CustomCursor />
+        <Footer1 />
       </body>
      
     </html>
