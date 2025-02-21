@@ -1,42 +1,11 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Footer1 } from '@/components/sections/Footer'
 import Navbar from '@/components/sections/Navbar'
-
-const stunts = [
-    {
-        title: "Wall Flip",
-        videoUrl: "https://www.youtube.com/embed/example1",
-        description: "Master the art of flipping off walls"
-    },
-    {
-        title: "Precision Jump",
-        videoUrl: "https://www.youtube.com/embed/example2",
-        description: "Land precisely on narrow surfaces"
-    },
-    {
-        title: "Kong Vault",
-        videoUrl: "https://www.youtube.com/embed/example3",
-        description: "Efficiently vault over obstacles"
-    },
-    {
-        title: "Cat Leap",
-        videoUrl: "https://www.youtube.com/embed/example4",
-        description: "Grab and pull yourself onto ledges"
-    },
-    {
-        title: "Rolling",
-        videoUrl: "https://www.youtube.com/embed/example5",
-        description: "Safely absorb impact from jumps"
-    },
-    {
-        title: "Tic Tac",
-        videoUrl: "https://www.youtube.com/embed/example6",
-        description: "Use walls to change direction mid-air"
-    }
-]
-
+import { ProgressiveBlur } from '@/components/ui/progressive-blur';
+import People from '@/lib/data'
+ 
 const container = {
     hidden: { opacity: 0 },
     show: {
@@ -61,6 +30,8 @@ const item = {
 }
 
 export default function StuntsPage() {
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
     return (
         <div className="min-h-screen bg-black text-white">
             <Navbar />
@@ -92,26 +63,46 @@ export default function StuntsPage() {
                 whileInView="show"
                 viewport={{ once: true }}
             >
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {stunts.map((stunt, index) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {People.map((stunt, index) => (
                         <motion.div
                             key={index}
-                            className="bg-[#1a1a1a] rounded-xl overflow-hidden border border-white/10"
+                            className='relative cursor-pointer aspect-square overflow-hidden rounded-xl'
+                            onMouseEnter={() => setHoveredIndex(index)}
+                            onMouseLeave={() => setHoveredIndex(null)}
                             variants={item}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true }}
                         >
-                            <div className="aspect-video">
-                                <iframe
-                                    className="w-full h-full"
-                                    src={stunt.videoUrl}
-                                    title={stunt.title}
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                />
-                            </div>
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold mb-2">{stunt.title}</h3>
-                                <p className="text-gray-300">{stunt.description}</p>
-                            </div>
+                            <img
+                                src={stunt.Picture || "/athletes/placeholder.png"}
+                                alt={stunt.Name}
+                                className='absolute inset-0 w-full h-full object-cover'
+                            />
+                            <ProgressiveBlur
+                                className='pointer-events-none absolute bottom-0 left-0 h-[75%] w-full'
+                                blurIntensity={0.5}
+                                animate={hoveredIndex === index ? 'visible' : 'hidden'}
+                                variants={{
+                                    hidden: { opacity: 0 },
+                                    visible: { opacity: 1 },
+                                }}
+                                transition={{ duration: 0.2, ease: 'easeOut' }}
+                            />
+                            <motion.div
+                                className='absolute bottom-0 left-0'
+                                animate={hoveredIndex === index ? 'visible' : 'hidden'}
+                                variants={{
+                                    hidden: { opacity: 0 },
+                                    visible: { opacity: 1 },
+                                }}
+                                transition={{ duration: 0.2, ease: 'easeOut' }}
+                            >
+                                <div className='flex flex-col items-start gap-0 px-5 py-4'>
+                                    <p className='text-xl capitalize font-medium text-white'>{stunt.Name}</p>
+                                </div>
+                            </motion.div>
                         </motion.div>
                     ))}
                 </div>

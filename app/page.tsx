@@ -24,8 +24,8 @@ export default function Home() {
       <MapView />
       <Cta />
       <Tutoring />
-        <ContactUS />
-        <Footer1 />
+      <ContactUS />
+      <Footer1 />
     </main>
   );
 }
