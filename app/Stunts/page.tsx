@@ -5,6 +5,7 @@ import { Footer1 } from '@/components/sections/Footer'
 import Navbar from '@/components/sections/Navbar'
 import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 import People from '@/lib/data'
+import Image from 'next/image'
  
 const container = {
     hidden: { opacity: 0 },
@@ -75,7 +76,9 @@ export default function StuntsPage() {
                             whileInView="show"
                             viewport={{ once: true }}
                         >
-                            <img
+                            <Image
+                                height={900}
+                                width={900}
                                 src={stunt.Picture || "/athletes/placeholder.png"}
                                 alt={stunt.Name}
                                 className='absolute inset-0 w-full h-full object-cover'
