@@ -23,7 +23,7 @@ const navitems = [
     },
     {
         name: "Stunts",
-        link: "/stunts"
+        link: "/Stunts"
     },
     {
         name: 'Store',

@@ -2,6 +2,7 @@ import React from 'react'
 import ProductPage from './Item'
 import type { Metadata, ResolvingMetadata } from 'next'
 import { Products } from '@/lib/MerchData'
+import { Footer1 } from '@/components/sections/Footer'
  
 type Props = {
   params: Promise<{ id: string }>
@@ -31,7 +32,9 @@ export async function generateMetadata(
 
 
 export default function page() {
-  return (
+  return (<div>
     <ProductPage />
+    <Footer1 />
+  </div>
   )
 }

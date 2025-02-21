@@ -5,6 +5,7 @@ import People, { Person } from '@/lib/data'
 import { Instagram, Facebook, Mail } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Skeleton } from '@/components/ui/skeleton'
+import { Footer1 } from '@/components/sections/Footer'
 
 export default function AthleteDetail({ params }: { params: Promise<{ id: string }> }) {
     const resolvedParams = React.use(params)
@@ -162,6 +163,8 @@ export default function AthleteDetail({ params }: { params: Promise<{ id: string
                     )}
                 </motion.div>
             </motion.div>
+ 
+
         </div>
     )
 }

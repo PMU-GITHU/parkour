@@ -1,3 +1,4 @@
+"use client"
 import { ArrowUpRightFromSquareIcon, MoveRight, PhoneCall } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,7 +21,9 @@ export const Cta = () => (
                     </p>
                 </div>
                 <div className="flex flex-row gap-4">
-                    <Button className="gap-4 bg-white/10 backdrop-blur-sm   text-white border-white/20" variant="outline">
+                    <Button
+                    onClick={() => window.location.href = '/Stunts'}
+                    className="gap-4 bg-white/10 backdrop-blur-sm   text-white border-white/20" variant="outline">
                         Explore Our Work <ArrowUpRightFromSquareIcon className="w-4 h-4" />
                     </Button>
                 </div>
