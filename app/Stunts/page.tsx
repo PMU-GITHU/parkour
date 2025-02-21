@@ -6,6 +6,7 @@ import Navbar from '@/components/sections/Navbar'
 import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 import People from '@/lib/data'
 import Image from 'next/image'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
  
 const container = {
     hidden: { opacity: 0 },
@@ -32,6 +33,15 @@ const item = {
 
 export default function StuntsPage() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const [selectedStunt, setSelectedStunt] = useState<typeof People[number] | null>(null);
+
+    const handleCardClick = (stunt: typeof People[number]) => {
+        setSelectedStunt(stunt);
+    };
+
+    const closeModal = () => {
+        setSelectedStunt(null);
+    };
 
     return (
         <div className="min-h-screen bg-black text-white">
@@ -71,6 +81,7 @@ export default function StuntsPage() {
                             className='relative cursor-pointer aspect-square overflow-hidden rounded-xl'
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
+                            onClick={() => handleCardClick(stunt)}
                             variants={item}
                             initial="hidden"
                             whileInView="show"
@@ -110,6 +121,40 @@ export default function StuntsPage() {
                     ))}
                 </div>
             </motion.div>
+
+            {/* Stunt Details Modal */}
+            <Dialog open={!!selectedStunt} onOpenChange={closeModal}>
+                <DialogContent className="sm:max-w-[425px] bg-black text-white border border-gray-800">
+                    <DialogHeader>
+                        <DialogTitle className="text-2xl">{selectedStunt?.Name}</DialogTitle>
+                    </DialogHeader>
+                    <div className="grid gap-4 py-4">
+                        {selectedStunt?.Picture && (
+                            <div className="relative aspect-square w-full">
+                                <Image
+                                    src={selectedStunt.Picture}
+                                    alt={selectedStunt.Name}
+                                    fill
+                                    className="rounded-lg object-cover"
+                                />
+                            </div>
+                        )}
+                        <div className="space-y-2">
+                            <p className="text-gray-300">{selectedStunt?.Description}</p>
+                            <div className="grid grid-cols-2 gap-2">
+                                <div>
+                                    <p className="text-sm text-gray-400">Age</p>
+                                    <p className="font-medium">{selectedStunt?.Age}</p>
+                                </div>
+                                <div>
+                                    <p className="text-sm text-gray-400">Type</p>
+                                    <p className="font-medium capitalize">{selectedStunt?.Type}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </DialogContent>
+            </Dialog>
 
             <Footer1 />
         </div>
