@@ -25,6 +25,7 @@ import {
     MorphingDialogContainer,
 } from '@/components/ui/morphing-dialog';
 import combinedArray from '@/lib/data'
+import { Button } from '../ui/button'
 
 export function Athletes() {
     const { ref, inView } = useInView({
@@ -32,9 +33,9 @@ export function Athletes() {
         threshold: 0.1
     });
     const [api, setApi] = useState<CarouselApi>();
-    const [current, setCurrent] = useState(0);
+   
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-     
+
 
     return (
         <div
@@ -42,17 +43,23 @@ export function Athletes() {
             ref={ref}
         >
             <motion.div
-            id='athletes'
-            className='flex items-center  justify-center w-full mx-auto px-4 md:px-20'>
+                id='athletes'
+                className='flex items-center  justify-between w-full mx-auto px-4 md:px-20'>
                 <TextEffect
                     preset='fade-in-blur'
                     speedReveal={1.1}
                     speedSegment={0.3}
-                    className='uppercase text-4xl md:text-6xl lg:text-8xl text-centre'
+                    className='uppercase text-4xl md:text-6xl lg:text-8xl text-start'
                     trigger={inView}
                 >
                     Athletes
                 </TextEffect>
+                <Button
+                    className='bg-black hover:bg-white border-xl hover:text-black text-xl text-start'
+                    asChild
+                >
+                    <a href="/Athletes">View All</a>
+                </Button>
             </motion.div>
 
             <motion.div className='flex flex-col items-center overflow-hidden justify-center px-4 md:px-20 w-full max-w-screen relative'>
@@ -69,7 +76,7 @@ export function Athletes() {
                         slidesToScroll: 3,
                         inViewThreshold: 0.5,
                         loop: true,
-                     }}
+                    }}
                 >
                     {/* Buttons positioned absolutely on top of gradients */}
                     <div className="absolute top-1/2 -translate-y-1/2 left-14 lg:left-16 xl:left-4 z-20">
@@ -131,4 +138,3 @@ export function Athletes() {
         </div>
     )
 }
- 
