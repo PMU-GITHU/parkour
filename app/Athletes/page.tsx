@@ -8,7 +8,7 @@ import People from '@/lib/data'
 import Image from 'next/image'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { useRouter } from 'next/navigation'
- 
+
 const container = {
     hidden: { opacity: 0 },
     show: {
@@ -35,8 +35,16 @@ const item = {
 export default function StuntsPage() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const router = useRouter();
+    const [selectedStunt, setSelectedStunt] = useState<typeof People[number] | null>(null);
 
-     
+    const handleCardClick = (stunt: typeof People[number]) => {
+        setSelectedStunt(stunt);
+    };
+
+    const closeModal = () => {
+        setSelectedStunt(null);
+    };
+
 
     return (
         <div className="min-h-screen bg-black text-white">
@@ -76,7 +84,7 @@ export default function StuntsPage() {
                             className='relative cursor-pointer aspect-square overflow-hidden rounded-xl'
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
-                            onClick={() => router.push(`/Athletes/${stunt.ID}`)}
+                            onClick={() => handleCardClick(stunt)}
                             variants={item}
                             initial="hidden"
                             whileInView="show"
@@ -116,8 +124,45 @@ export default function StuntsPage() {
                     ))}
                 </div>
             </motion.div>
+            <Dialog open={!!selectedStunt} onOpenChange={closeModal}>
+                <DialogContent className="max-w-[1200px] w-[90vw] bg-white/5  backdrop-blur-md border-none">
+                    <div className="grid grid-cols-[500px_1fr] gap-12 p-8">
+                        {selectedStunt?.Picture && (
+                            <div className="relative aspect-square">
+                                <Image
+                                    src={selectedStunt.Picture}
+                                    alt={selectedStunt.Name}
+                                    fill
+                                    className="rounded-lg object-cover"
+                                />
+                            </div>
+                        )}
+                        <div className="flex flex-col">
+                            <DialogHeader>
+                                <DialogTitle className="text-4xl font-bold mb-6 text-white">
+                                    {selectedStunt?.Name}
+                                </DialogTitle>
+                            </DialogHeader>
+                            <div className="space-y-6">
+                                <p className="text-gray-200 text-xl leading-relaxed">
+                                    {selectedStunt?.Description}
+                                </p>
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div>
+                                        <p className="text-lg text-gray-400">Age</p>
+                                        <p className="font-medium text-white text-xl">{selectedStunt?.Age}</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-lg text-gray-400">Type</p>
+                                        <p className="font-medium text-white text-xl capitalize">{selectedStunt?.Type}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </DialogContent>
+            </Dialog>
 
-          
             <Footer1 />
         </div>
     )

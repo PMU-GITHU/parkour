@@ -8,13 +8,20 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { DirectionsMenu } from "../directions-menu"
 import { LocationsIMages } from "../location-images"
-
+import { ScrollArea } from "@/components/ui/scroll-area"
 // Sample locations data
 const locations = [
-  { id: 1, name: "Eiffel Tower", coordinates: [2.2945, 48.8584], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 2, name: "Colosseum", coordinates: [12.4924, 41.8902], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 3, name: "Sagrada Familia", coordinates: [2.1743, 41.4036], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 4, name: "Big Ben", coordinates: [-0.1276, 51.5007], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 1, name: "Oasis Spot", coordinates: [-7.994174, 31.702513], image: "https://lh3.googleusercontent.com/gps-cs-s/AB5caB9yNWQ6JCWQhwXDHl2l_mBdc51l8uHcC2X7PaLJV23xNDwBif1ZejlrSYXhhtHLtMe_aNtLB-ruek_tBcbouOHtKelroFJCMwmmU2jKnsadjpPnJHbooWDlFvt01KHrCX7sbY0h=s508-k-no" },
+  { id: 2, name: "Al Badii", coordinates: [-8.004596, 31.662735], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 3, name: "Skatepark Menara", coordinates: [-8.014210, 31.614480], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 4, name: "Parc Bab lkssiba", coordinates: [-7.990188, 31.612615], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 5, name: "PMU Playground", coordinates: [-8.057949, 31.613872], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 6, name: "ANBER", coordinates: [-8.066505, 31.634299], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 7, name: "Malizya", coordinates: [-8.009430, 31.665456], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 8, name: "BOUKAR 1", coordinates: [-7.999190, 31.639464], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 9, name: "BOUKAR 2", coordinates: [-7.999153, 31.642749], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 10, name: "KOUTOUBIA", coordinates: [-7.992959, 31.623624], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 11, name: "Arsat ", coordinates: [-8.000554, 31.628086], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
 ]
 
 export function MapView() {
@@ -84,8 +91,10 @@ export function MapView() {
       </div>
 
       {/* Locations List */}
-      <div className="space-y-5 order-1 w-full md:order-2 px-4 md:px-0">
+      <div className="space-y-5 order-1 w-full md:order-2 px-4 md:px-0 max-h-lg max-h-20">
         <h2 className="text-3xl md:text-4xl lg:text-6xl text-white uppercase font-bold mb-6 md:mb-14">Locations</h2>
+        <ScrollArea   className="h-[29rem]  w-full ">
+          
         {locations.map((location) => (
           <div key={location.id} className="space-y-2">
             <Button
@@ -110,6 +119,7 @@ export function MapView() {
             )}
           </div>
         ))}
+        </ScrollArea>
       </div>
     </div>
   )

@@ -26,6 +26,7 @@ import {
 } from '@/components/ui/morphing-dialog';
 import combinedArray from '@/lib/data'
 import { Button } from '../ui/button'
+import Link from 'next/link'
 
 export function Athletes() {
     const { ref, inView } = useInView({
@@ -58,7 +59,7 @@ export function Athletes() {
                     className='bg-black hover:bg-white border-xl hover:text-black text-xl text-start'
                     asChild
                 >
-                    <a href="/Athletes">View All</a>
+                    <Link href="/Athletes">View All</Link>
                 </Button>
             </motion.div>
 
