@@ -12,22 +12,17 @@ import { StuntsAthletes } from '@/components/sections/StuntsAthletes'
 const YoutubeVideos = [
     {
         title: "Parkour Basics: Rolls and Landings",
-        embedUrl: "https://www.youtube.com/watch?v=WXsXWrW1h9c",
+        embedUrl: "https://www.youtube.com/embed/WXsXWrW1h9c",
         description: "Learn the fundamental techniques of parkour rolls and safe landings"
     },
     {
         title: "Wall Running Techniques",
-        embedUrl: "https://www.youtube.com/watch?v=WXsXWrW1h9c",
+        embedUrl: "https://www.youtube.com/embed/FD1rXJkWxss",
         description: "Master the art of wall running with proper form and technique"
     },
     {
         title: "Precision Jumps Tutorial",
-        embedUrl: "https://www.youtube.com/watch?v=WXsXWrW1h9c",
-        description: "Improve your accuracy with precision jumps in parkour"
-    },
-    {
-        title: "Precision Jumps Tutorial",
-        embedUrl: "https://www.youtube.com/watch?v=WXsXWrW1h9c",
+        embedUrl: "https://www.youtube.com/embed/5VXH4JL88E8",
         description: "Improve your accuracy with precision jumps in parkour"
     }
 ]
@@ -98,7 +93,7 @@ export default function StuntsPage() {
                         Stunts Showcase
                     </motion.h1>
                     <motion.p
-                        className="mt-4 text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl px-4"
+                        className="mt极4 text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl px-4"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
@@ -109,7 +104,7 @@ export default function StuntsPage() {
             </div>
 
             <div className='h-1/3 absolute -z-10 w-full bg-black' />
-            <div className='container z-30 mx-auto flex flex-col items-center justify-start gap-6 sm:gap-8 md:gap-10 py-6 sm:py-8 md:py-10 px-4 sm:px-6'>
+            <div className='container z-30 mx-auto flex flex-col items-center justify-start gap-6 sm:gap-8 md:gap-10 py极6 sm:py-8 md:py-10 px-4 sm:px-6'>
                 <div className='w-full items-center justify-center flex flex-col leading-6 sm:leading-8'>
                     <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold text-white text-center py-6 sm:py-8 md:py-10'>
                         Featured Projects
@@ -180,7 +175,7 @@ export default function StuntsPage() {
     )
 }
 const images = [
-    "https://images.pexels.com/photos/30082445/pexels-photo-30082445.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "https://images.pexels.com/photos/30082445/pexels-photo-30082445.jpeg?auto极compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     "https://images.unsplash.com/photo-1692606743169-e1ae2f0a960f?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://assets.lummi.ai/assets/QmQLSBeCFHUwCv7WBpGr7T3P67UXaAw8B2vvmtKimyinrL?auto=format&w=1500",
     "https://assets.lummi.ai/assets/QmXe6v7jBF5L2R7FCio8KQdXwTX2uqzRycUJapyjoXaTqd?auto=format&w=1500",
