@@ -7,7 +7,8 @@ import { cn } from '@/lib/utils'
 import { Badge } from "@/components/ui/badge";
 import People, { Person } from '@/lib/data'
 import { BackgroundBeams } from '../ui/background-beams'
- 
+import BeamsBackground from '../kokonutui/beams-background'
+
 export function CoachesPage() {
     const { ref, inView } = useInView({
         triggerOnce: true,
@@ -16,14 +17,14 @@ export function CoachesPage() {
 
     return (
         <div
-        id='coaches'
+            id='coaches'
 
             className='w-full bg-black text-white text-4xl font-bold items-start justify-center flex flex-col min-h-screen relative p-4 md:p-8'
             ref={ref}
         >
 
             <motion.div
-            className='flex items-center justify-center mx-auto px-4 md:px-40'>
+                className='flex items-center justify-center mx-auto px-4 md:px-40'>
                 <TextEffect
                     preset='fade-in-blur'
                     speedReveal={1.1}
@@ -33,15 +34,14 @@ export function CoachesPage() {
                 >
                     Coaches
                 </TextEffect>
-            </motion.div>
+            </motion.div> 
 
-            <div className="w-full flex-1">
-                {People.filter((e)=> e.Type === "Coach").map((coach, index) => (
-                    <CoacheComponent coach={coach} key={coach.ID} position={index === 1 ? "left" : "right"} />
-                ))}
-            </div>
-            <BackgroundBeams />
-
+                <div className="w-full flex-1">
+                    {People.filter((e) => e.Type === "Coach").map((coach, index) => (
+                        <CoacheComponent coach={coach} key={coach.ID} position={index === 1 ? "left" : "right"} />
+                    ))}
+                </div>
+ 
         </div>
     )
 }

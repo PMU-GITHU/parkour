@@ -42,6 +42,7 @@ function createBeam(width: number, height: number): Beam {
 export default function BeamsBackground({
     className,
     intensity = "strong",
+    children
 }: AnimatedGradientBackgroundProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const beamsRef = useRef<Beam[]>([]);
@@ -180,7 +181,7 @@ export default function BeamsBackground({
             />
 
             <motion.div
-                className="absolute inset-0 bg-neutral-950/5"
+                className="absolute inset-0 -z-10 bg- neutral-950/5"
                 animate={{
                     opacity: [0.05, 0.15, 0.05],
                 }}
@@ -189,12 +190,10 @@ export default function BeamsBackground({
                     ease: "easeInOut",
                     repeat: Number.POSITIVE_INFINITY,
                 }}
-                style={{
-                    backdropFilter: "blur(50px)",
-                }}
+                 
             />
-
-            <div className="relative z-10 flex h-screen w-full items-center justify-center">
+                {children}
+            {/* <div className="relative z-10 flex h-screen w-full items-center justify-center">
                 <div className="flex flex-col items-center justify-center gap-6 px-4 text-center">
                     <motion.h1
                         className="text-6xl md:text-7xl lg:text-8xl font-semibold text-white tracking-tighter"
@@ -215,7 +214,7 @@ export default function BeamsBackground({
                         For your pleasure
                     </motion.p>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }

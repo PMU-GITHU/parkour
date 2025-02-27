@@ -7,7 +7,7 @@ import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 import People from '@/lib/data'
 import Image from 'next/image'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 const container = {
     hidden: { opacity: 0 },
@@ -35,16 +35,27 @@ const item = {
 export default function StuntsPage() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const athleteId = searchParams.get('id');
     const [selectedStunt, setSelectedStunt] = useState<typeof People[number] | null>(null);
     const { scrollY } = useScroll();
     const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
+    useEffect(() => {
+        if (athleteId) {
+            const selected = People.find(person => person.ID === parseInt(athleteId));
+            setSelectedStunt(selected || null);
+        }
+    }, [athleteId]);
+
     const handleCardClick = (stunt: typeof People[number]) => {
+        router.push(`?id=${stunt.ID}`, { scroll: false });
         setSelectedStunt(stunt);
     };
 
     const closeModal = () => {
         setSelectedStunt(null);
+        router.push('?id=', { scroll: false });
     };
 
     return (
@@ -60,7 +71,7 @@ export default function StuntsPage() {
                     style={{ opacity }}
                 >
                     <Image
-                        src="/athletes/AAZ.jpg" // Replace with your image path
+                        src="/athletesBG.jpg"
                         alt="Athletes Background"
                         fill
                         className="object-cover"
@@ -87,7 +98,7 @@ export default function StuntsPage() {
             </div>
 
             {/* Content Section */}
-            <div className="relative z-10  pt-10    t">
+            <div className="relative z-10  pt-10">
                 <div className="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
                 {/* Stunts Grid */}
                 <motion.div
@@ -111,8 +122,8 @@ export default function StuntsPage() {
                                 viewport={{ once: true }}
                             >
                                 <Image
-                                    height={900}
-                                    width={900}
+                                    height={500}
+                                    width={500}
                                     src={stunt.Picture || "/athletes/placeholder.png"}
                                     alt={stunt.Name}
                                     className='absolute inset-0 w-full h-full object-cover'
