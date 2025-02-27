@@ -47,8 +47,11 @@ export default function StuntsPage() {
 
 
     return (
-        <div className="min-h-screen bg-black text-white">
+        <div className="min-h-screen relative bgblack text-black">
+            <div className="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+            <div className='bg-black/60'>
             <Navbar />
+            </div>
             {/* Hero Section */}
             <div className="h-[50vh] flex flex-col items-center justify-center text-center px-4">
                 <motion.h1
@@ -60,7 +63,7 @@ export default function StuntsPage() {
                     Athletes Showcase
                 </motion.h1>
                 <motion.p
-                    className="mt-4 text-lg md:text-xl text-gray-300 max-w-2xl"
+                    className="mt-4 text-lg md:text-xl text-gray-800 max-w-2xl"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
@@ -77,7 +80,7 @@ export default function StuntsPage() {
                 whileInView="show"
                 viewport={{ once: true }}
             >
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
                     {People.map((stunt, index) => (
                         <motion.div
                             key={index}
