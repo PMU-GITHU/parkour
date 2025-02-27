@@ -140,11 +140,9 @@ export default function StuntsPage() {
                         </div>
                         <div className="flex gap-2 flex-col items-center justify-center">
                             <h2 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-left">
-                                 Casted Stunts
+                                 Cast 
                             </h2>
-                            <p className="text-lg max-w-xl  lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground text-center">
-                                 
-                            </p>
+                            
                         </div>
                     </div>
                     <motion.div 
