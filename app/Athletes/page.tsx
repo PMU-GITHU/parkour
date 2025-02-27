@@ -70,10 +70,10 @@ export default function StuntsPage() {
                     className="fixed inset-0 z-0"
                     style={{ opacity }}
                 >
-                    <Image
+                    <img
                         src="/BGs.jpg"
                         alt="Athletes Background"
-                        fill
+                    
                         className="object-cover"
                     />
                 </motion.div>
