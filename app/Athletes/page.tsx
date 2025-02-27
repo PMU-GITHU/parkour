@@ -71,7 +71,7 @@ export default function StuntsPage() {
                     style={{ opacity }}
                 >
                     <Image
-                        src="/athletesBG.jpg"
+                        src="/athletesBGs.jpg"
                         alt="Athletes Background"
                         fill
                         className="object-cover"
