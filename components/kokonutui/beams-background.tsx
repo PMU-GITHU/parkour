@@ -42,7 +42,7 @@ function createBeam(width: number, height: number): Beam {
 export default function BeamsBackground({
     className,
     intensity = "strong",
-    children
+    children,
 }: AnimatedGradientBackgroundProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const beamsRef = useRef<Beam[]>([]);
@@ -64,10 +64,20 @@ export default function BeamsBackground({
 
         const updateCanvasSize = () => {
             const dpr = window.devicePixelRatio || 1;
+            const body = document.body;
+            const html = document.documentElement;
+            const height = Math.max(
+                body.scrollHeight, 
+                body.offsetHeight, 
+                html.clientHeight, 
+                html.scrollHeight, 
+                html.offsetHeight
+            );
+            
             canvas.width = window.innerWidth * dpr;
-            canvas.height = window.innerHeight * dpr;
+            canvas.height = height * dpr;
             canvas.style.width = `${window.innerWidth}px`;
-            canvas.style.height = `${window.innerHeight}px`;
+            canvas.style.height = `${height}px`;
             ctx.scale(dpr, dpr);
 
             const totalBeams = MINIMUM_BEAMS * 1.5;
@@ -170,18 +180,18 @@ export default function BeamsBackground({
     return (
         <div
             className={cn(
-                "relative min-h-screen w-full overflow-hidden bg-neutral-950",
+                "relative w-full min-h-screen overflow-hidden bg-neutral-950",
                 className
             )}
         >
             <canvas
                 ref={canvasRef}
-                className="absolute inset-0"
+                className="absolute inset-0 w-full h-full"
                 style={{ filter: "blur(15px)" }}
             />
 
             <motion.div
-                className="absolute inset-0 -z-10 bg- neutral-950/5"
+                className="absolute inset-0 bg-neutral-950/5"
                 animate={{
                     opacity: [0.05, 0.15, 0.05],
                 }}
@@ -190,31 +200,14 @@ export default function BeamsBackground({
                     ease: "easeInOut",
                     repeat: Number.POSITIVE_INFINITY,
                 }}
-                 
+                style={{
+                    backdropFilter: "blur(50px)",
+                }}
             />
+
+            <div className="relative z-10 w-full h-full">
                 {children}
-            {/* <div className="relative z-10 flex h-screen w-full items-center justify-center">
-                <div className="flex flex-col items-center justify-center gap-6 px-4 text-center">
-                    <motion.h1
-                        className="text-6xl md:text-7xl lg:text-8xl font-semibold text-white tracking-tighter"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        Beams
-                        <br />
-                        Background
-                    </motion.h1>
-                    <motion.p
-                        className="text-lg md:text-2xl lg:text-3xl text-white/70 tracking-tighter"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        For your pleasure
-                    </motion.p>
-                </div>
-            </div> */}
+            </div>
         </div>
     );
 }

@@ -32,7 +32,7 @@ const item = {
     }
 }
 
-export default function StuntsPage() {
+export default function AthletesPage() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const router = useRouter();
     const searchParams = useSearchParams();

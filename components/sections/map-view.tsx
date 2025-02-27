@@ -11,7 +11,7 @@ import { LocationsIMages } from "../location-images"
 import { ScrollArea } from "@/components/ui/scroll-area"
 // Sample locations data
 const locations = [
-  { id: 1, name: "Oasis Spot", coordinates: [-7.994174, 31.702513], image: "https://lh3.googleusercontent.com/gps-cs-s/AB5caB9yNWQ6JCWQhwXDHl2l_mBdc51l8uHcC2X7PaLJV23xNDwBif1ZejlrSYXhhtHLtMe_aNtLB-ruek_tBcbouOHtKelroFJCMwmmU2jKnsadjpPnJHbooWDlFvt01KHrCX7sbY0h=s508-k-no" },
+  { id: 1, name: "Oasis Spot", availableToPublic: false, coordinates: [-7.994174, 31.702513], image: "https://lh3.googleusercontent.com/gps-cs-s/AB5caB9yNWQ6JCWQhwXDHl2l_mBdc51l8uHcC2X7PaLJV23xNDwBif1ZejlrSYXhhtHLtMe_aNtLB-ruek_tBcbouOHtKelroFJCMwmmU2jKnsadjpPnJHbooWDlFvt01KHrCX7sbY0h=s508-k-no" },
   { id: 2, name: "Al Badii", coordinates: [-8.004596, 31.662735], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
   { id: 3, name: "Skatepark Menara", coordinates: [-8.014210, 31.614480], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
   { id: 4, name: "Parc Bab lkssiba", coordinates: [-7.990188, 31.612615], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
@@ -93,32 +93,46 @@ export function MapView() {
       {/* Locations List */}
       <div className="space-y-5 order-1 w-full md:order-2 px-4 md:px-0 max-h-lg max-h-20">
         <h2 className="text-3xl md:text-4xl lg:text-6xl text-white uppercase font-bold mb-6 md:mb-14">Locations</h2>
-        <ScrollArea   className="h-[29rem]  w-full ">
-          
-        {locations.map((location) => (
-          <div key={location.id} className="space-y-2">
-            <Button
-              variant={"ghost"}
-              className="w-full text-white uppercase text-lg md:text-2xl lg:text-4xl justify-start gap-2 hover:bg-transparent hover:text-orange-500"
-              onClick={() => handleLocationClick(location)}
-            >
-              <motion.div
-                initial={{ width: 0, height: 0 }}
-                whileHover={{ width: 10, height: 10 }}
-                animate={activeLocation === location.id ? { width: 100, height: 2 } : { width: 0, height: 0 }}
-                transition={{ duration: 0.2 }}
-                className="bg-orange-500 rounded-full"
-              />
-              {location.name}
-            </Button>
-            {activeLocation === location.id && (
-              <div className="pl-1 pb-4 w-full md:pb-8">
-                <DirectionsMenu coordinates={location.coordinates as [number, number]} locationName={location.name} />
-                <LocationsIMages location={{ ...location, coordinates: location.coordinates as [number, number] }} />
-              </div>
-            )}
-          </div>
-        ))}
+        <ScrollArea className="h-[29rem]  w-full ">
+
+          {locations.map((location) => (
+            <div key={location.id} className="space-y-2">
+              <Button
+                variant={"ghost"}
+                className="w-full text-white uppercase text-lg md:text-2xl lg:text-4xl justify-start gap-2 hover:bg-transparent hover:text-orange-500"
+                onClick={() => handleLocationClick(location)}
+              >
+                <motion.div
+                  initial={{ width: 0, height: 0 }}
+                  whileHover={{ width: 10, height: 10 }}
+                  animate={activeLocation === location.id ? { width: 100, height: 2 } : { width: 0, height: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="bg-orange-500 rounded-full"
+                />
+                {location.name}
+              </Button>
+              {activeLocation === location.id && (
+                <div className="pl-1 pb-4 w-full md:pb-8">
+                  {
+                    location.availableToPublic ? (
+                      <DirectionsMenu coordinates={location.coordinates as [number, number]} locationName={location.name} />
+                    ) : (
+                      <div className=" flex justify-center items-center max-w-lg cursor-not-allowed   gap-x-2 text-white text-md md:text-lg">
+                        <motion.div
+                          initial={{ width: 0, height: 0 }}
+                          whileHover={{ width: 10, height: 10 }}
+                          animate={location ? { width: 135, height: 2 } : { width: 0, height: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="bg-orange-300 rounded-full"
+                        />
+                        This location is not available to the public</div>
+                    )
+                  }
+                  <LocationsIMages location={{ ...location, coordinates: location.coordinates as [number, number] }} />
+                </div>
+              )}
+            </div>
+          ))}
         </ScrollArea>
       </div>
     </div>
