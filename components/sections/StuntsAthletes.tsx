@@ -37,8 +37,7 @@ const StuntsAthletes = ({
             url: "/#contact",
         },
     },
-    features =
-    stunts.map((stunt) => ({
+    features = stunts.map((stunt) => ({
         image: stunt.Picture || "/athletes/placeholder.png",
         title: stunt.Name || "No name available",
         description: stunt.Description || "No description available",
