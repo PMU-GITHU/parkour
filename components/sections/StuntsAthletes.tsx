@@ -2,12 +2,16 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { assert } from "node:console";
 import { Athletes } from "./Athletes";
-import People from "@/lib/data";
+import People, { stunts } from "@/lib/data";
+import { Instagram, Youtube } from "lucide-react";
 
 interface Feature {
     image: string;
     title: string;
     description: string;
+    imdbLink?: string;
+    youtubeLink?: string;
+    instagramLink?: string;
 }
 
 interface StuntsAthletesProps {
@@ -18,7 +22,7 @@ interface StuntsAthletesProps {
             text: string;
             url: string;
         };
-         
+
     };
     features?: Feature[];
 }
@@ -29,19 +33,22 @@ const StuntsAthletes = ({
     description = "We have a proven track record of success in the industry, working with some of the best athletes in the world.",
     buttons = {
         primary: {
-            text: "Start Now",
-            url: "#",
+            text: "Contact Us",
+            url: "/#contact",
         },
     },
     features =
-    People.filter(person => person.hasStunts == true).map((stunt) => ({
+    stunts.map((stunt) => ({
         image: stunt.Picture || "/athletes/placeholder.png",
         title: stunt.Name || "No name available",
         description: stunt.Description || "No description available",
+        imdbLink: stunt.imdbLink || "",
+        youtubeLink: stunt.youtube || "",
+        instagramLink: stunt.instagram || "",
     })),
 
 }: StuntsAthletesProps) => {
-     return (
+    return (
         <section
             className="py-32 w-full   bg-black text-white">
             <div className="container  mx-auto max-w-6xl">
@@ -57,7 +64,7 @@ const StuntsAthletes = ({
                             <Button className="gap-2 w-3/4 text-black" variant={"outline"} size="lg" asChild>
                                 <Link href={buttons.primary.url}>{buttons.primary.text}</Link>
                             </Button>
-                             
+
                         </div>
                     </div>
                     <div className="flex flex-col gap-12 md:gap-20">
@@ -66,14 +73,34 @@ const StuntsAthletes = ({
                                 <img
                                     src={feature.image}
                                     alt={feature.title}
-                                    className="aspect-video w-full rounded-b-none rounded-t-xl   object-cover"
+                                    className="aspect-square w-full rounded-b-none rounded-t-xl   object-cover"
                                 />
                                 <div className="p-6">
-                                    <h3 className="mb-1 text-2xl font-semibold">
-                                        {feature.title}
-                                    </h3>
+                                    <div className="mb-1 text-2xl font-semibold">
+                                        <h3>
+                                            {feature.title}
+                                        </h3>
+                                        <div className="flex gap-2 py-2">
+                                            {feature.imdbLink && (
+                                                <Link href={feature.imdbLink}>
+                                                    <img src="/icons/IMDB.svg" className="w-10 h-10" />
+                                                </Link>
+                                            )}
+                                            {feature.youtubeLink && (
+                                                <Link href={feature.youtubeLink}>
+                                                    <img src="/icons/Youtube.svg" className="w-10 h-10  " />
+                                                </Link>
+                                            )}
+                                            {feature.instagramLink && (
+                                                <Link href={feature.instagramLink}>
+                                                    <img src="/icons/Instagram.svg" className="w-8 h-8" />
+                                                </Link>
+                                            )}
+                                        </div>
+                                    </div>
                                     <p className="text-muted-foreground">{feature.description}</p>
                                 </div>
+
                             </div>
                         ))}
                     </div>

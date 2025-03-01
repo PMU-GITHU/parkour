@@ -47,10 +47,10 @@ export default function HoverExpand({
         {images.slice(0, maxThumbnails).map((imageUrl, i) => (
           <div
             key={`image-container-${i}`}
-            className={`group relative w-full sm:w-auto h-[10rem] sm:h-[20rem] md:h-[25rem] overflow-hidden rounded-2xl transition-all duration-300 ${
+            className={`group relative w-full sm:w-auto h-[15rem] sm:h-[25rem]  overflow-hidden rounded-lg transition-all duration-300 ${
               selectedIndex === i 
-                ? "sm:w-[20rem] md:w-[25rem] lg:w-[30rem]" 
-                : "sm:w-8 md:w-10 lg:w-12 xl:w-20"
+                ? "sm:w-[13.5rem] md:w-[16rem]  " 
+                : "sm:w-8 md:w-10 lg:w-12 xl:w-20 aspect-square"
             }`}
             onMouseEnter={() => setSelectedIndex(i)}
             onMouseLeave={() => setSelectedIndex(i)}
@@ -79,16 +79,16 @@ export default function HoverExpand({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 grid place-content-center bg-white/40 backdrop-blur-sm dark:bg-black/40"
+            className="fixed inset-0 z-50 grid place-content-center bg-white/10 backdrop-blur-xl dark:bg-black/40"
             onClick={() => setIsModalOpen(false)}
           >
             <div
               onClick={(e: React.MouseEvent) => e.stopPropagation()}
-              className="cursor-pointer overflow-hidden rounded-2xl bg-black max-w-[90vw] max-h-[90vh]"
+              className="cursor-pointer overflow-hidden rounded-lg bg-black max-w-[90vw] max-h-[90vh]"
             >
               <motion.div
                 layoutId={`image-${selectedIndex}`}
-                className="relative w-[90vw] h-[50vh] sm:w-[80vw] sm:h-[60vh] md:w-[70vw] md:h-[70vh] lg:w-[60vw] lg:h-[80vh]"
+                className="relative w-[13.5rem] h-[20rem] sm:w-[16rem] sm:h-[24rem]"
               >
                 <img
                   src={images[selectedIndex]}

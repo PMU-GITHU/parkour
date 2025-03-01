@@ -175,12 +175,14 @@ export default function StuntsPage() {
     )
 }
 const images = [
-    "https://images.pexels.com/photos/30082445/pexels-photo-30082445.jpeg?auto极compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.unsplash.com/photo-1692606743169-e1ae2f0a960f?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://assets.lummi.ai/assets/QmQLSBeCFHUwCv7WBpGr7T3P67UXaAw8B2vvmtKimyinrL?auto=format&w=1500",
-    "https://assets.lummi.ai/assets/QmXe6v7jBF5L2R7FCio8KQdXwTX2uqzRycUJapyjoXaTqd?auto=format&w=1500",
-    "https://assets.lummi.ai/assets/QmNfwUDpehZyLWzE8to7QzgbJ164S6fQy8JyUWemHtmShj?auto=format&w=1500",
-    "https://images.unsplash.com/photo-1706049379414-437ec3a54e93?q=80&w=1200&auto=format",
-    "https://assets.lummi.ai/assets/Qmb2P6tF2qUaFXnXpnnp2sk9HdVHNYXUv6MtoiSq7jjVhQ?auto=format&w=1500",
-    "https://images.unsplash.com/photo-1508873881324-c92a3fc536ba?q=80&w=1200&auto=format",
+    "/movies/7.jpg",
+    "/movies/1.jpg",
+    "/movies/2.jpg",
+    "/movies/3.jpg",
+    "/movies/4.jpg",
+    "/movies/5.jpg",
+    "/movies/6.jpg",
+
+    "/movies/godzilla.jpg",
+    
 ]

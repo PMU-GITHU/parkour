@@ -45,8 +45,8 @@ const athletes = [
 
 
 const Coaches = [
-    { ID: 19,hasStunts: true, Name: 'Mohamed Mouraoui', Age: '28 y.o', Description: "I started parkour at an early age. after years of practice I became a coach of parkour and gymnastic with clubs at the regional level. then I started to make my movement on the action movies where I became a stunt man on the movies as a creator action fighting. our community creating suitable environment for practicing parkour and exchanging information and skills among all the players of this group, especially the new generation.", Picture: "/athletes/DSC08756.JPG" },
-    { ID: 8,hasStunts: true, Name: 'Wassim Boulouk', Age: '30 y.o', Description: "With over a decade of experience in parkour and movement arts, I'm passionate about sharing my knowledge and helping others develop their skills. My approach focuses on building confidence, improving technique, and fostering a supportive community. I believe parkour is not just a physical discipline but a way to overcome challenges both on and off the training ground.", Picture: "/athletes/DSC06869.JPG" },
+    { ID: 19, hasStunts: true, Name: 'Mohamed Mouraoui', Age: '28 y.o', Description: "I started parkour at an early age. after years of practice I became a coach of parkour and gymnastic with clubs at the regional level. then I started to make my movement on the action movies where I became a stunt man on the movies as a creator action fighting. our community creating suitable environment for practicing parkour and exchanging information and skills among all the players of this group, especially the new generation.", Picture: "/athletes/DSC08756.JPG" },
+    { ID: 8, hasStunts: true, Name: 'Wassim Boulouk', Age: '30 y.o', Description: "With over a decade of experience in parkour and movement arts, I'm passionate about sharing my knowledge and helping others develop their skills. My approach focuses on building confidence, improving technique, and fostering a supportive community. I believe parkour is not just a physical discipline but a way to overcome challenges both on and off the training ground.", Picture: "/athletes/DSC06869.JPG" },
     { ID: 1, Name: 'Es-saidi Saad', Age: '23 y.o', Description: "I’m a sports teacher with a master’s degree in Sport management at ENCG.\nI started parkour since 2019, now I’m a National pro parkour athlete with a parkour coaching certification.\nParkour, changed the way I see my lifestyle and made me realise that no matter what are your circumstances in your life you should keep your mind and your body balanced between taking risk and controlling it, so you can develop a better version of yourself.", Picture: "/athletes/Es-saidi Saad.JPG", MoveTrick: null },
 ];
 
@@ -83,7 +83,25 @@ Coaches.forEach((coach) => {
     });
 });
 
+
+const stunts = [
+    { ID: 1, imdbLink: "https://www.imdb.com/name/nm15792124/?ref_=nv_sr_srsg_0_tt_1_nm_7_in_0_q_mouraoui", youtube: null, instagram: null, Name: 'Mohamed Mouraoui', Age: '28 y.o', Description: "I started parkour at an early age. after years of practice I became a coach of parkour and gymnastic with clubs at the regional level. then I started to make my movement on the action movies where I became a stunt man on the movies as a creator action fighting. our community creating suitable environment for practicing parkour and exchanging information and skills among all the players of this group, especially the new generation.", Picture: "/athletes/DSC08756.JPG" },
+    { ID: 2, imdbLink: "https://www.imdb.com/name/nm15792122/?ref_=nv_sr_srsg_0_tt_0_nm_1_in_0_q_aziz%2520bouman", youtube: null, instagram: null, Name: 'Azize Boumane', Age: '34 y.o', Description: null, Picture: "/athletes/DSC08753.JPG", MoveTrick: null },
+    { ID: 3, imdbLink: "https://www.imdb.com/name/nm12156942/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_wassim%2520boulou", youtube: null, instagram: null, Name: 'Wassim Boulouk', Age: '30 y.o', Description: "Alongside coaching, I have gained extensive experience in the world of cinema as a stunt performer, bringing dynamic action sequences to life. I have had the opportunity to work on major productions such as Alad’2, The Spy on Netflix, and The Octet on Shahid. These experiences have allowed me to merge my athletic background with the art of storytelling, showcasing high-level parkour and stunt work on screen while collaborating with international filmmakers and industry professionals.", Picture: "/athletes/DSC06869.JPG" },
+    { ID: 4, imdbLink: "https://www.imdb.com/name/nm15792123/?ref_=nv_sr_srsg_0_tt_0_nm_1_in_0_q_Zouhair%2520laakari", youtube: null, instagram: null, Name: 'Zouhair Elakkari', Age: null, Description: "", Picture: null, MoveTrick: null },
+    {
+        ID: 5, imdbLink: "https://www.imdb.com/name/nm10374339/?ref_=nv_sr_srsg_0_tt_0_nm_1_in_0_q_Rida%2520Aitoufqir", youtube: null, instagram: null, Name: 'Rida Aitoufqir', Age: "34 y.o", Description: `Rida Aitoufqir, born in 1991,I’m parkour athlete and professional stunt performer in film industry with a science economics and management degrees,I do parkour parkour since 2005 and I started performing stunts in movies since 2013 Featured and performed stunts in renowned TV series and films including prison break 2017, desert warrior, , the wheel of time II , homeland , Godzilla x Kong: The New Empire (2024), Mosul (2019) and Gladiator II (2024) and others ..
+I've worked in more than 45 projects that are filmed in Morocco and outside Morocco and I've been nominated for outstanding stunt performance in Gladiator II in 2025.
+I'm specialist in parkour, martial arts, high falls, swords fights, stunt driving and more .`, Picture: "/athletes/gb.jpg", MoveTrick: null
+    },
+    { ID: 6, imdbLink: null, youtube: null, instagram: null, Name: 'Ayoub mankari', Age: null, Description: "", Picture: '/athletes/dgr.jpg', MoveTrick: null },
+    { ID: 7, imdbLink: null, youtube: "https://youtube.com/shorts/o-vQThwpc5U?si=j31z6vVEJ6TukRfw", instagram: null, Name: 'Othman Noukrati', Age: '27 y.o', Description: "I started my journey of exploring the world of movement in 10. I was climbing trees and doing the art of displacement. After that, I learned that the parkour community was rather large. Then I started exploring more with Companionship and free running as well in 2014. Until now, I am still a student of movement.", Picture: "/athletes/DSC08370.JPG" },
+    { ID: 8, imdbLink: null, youtube: null, instagram: "https://www.instagram.com/arradiii/", Name: 'Arradi Abderrahim', Age: '29 y.o', Description: "This journey has helped me see the world in a different way and has inspired creativity in my lifestyle.\nMy goal is to explore the world through parkour and keep my body moving, no matter where I go.\nit’s about discovering new perspectives and staying connected to the world around me. Through parkour, I find freedom, creativity, and inspiration every day.", Picture: "/athletes/DSC06848.JPG", MoveTrick: null },
+]
+
+
 // Finally, convert the map back to an array.
 const People: Person[] = Array.from(peopleMap.values());
 
+export { stunts };
 export default People;
