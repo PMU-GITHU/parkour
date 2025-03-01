@@ -82,17 +82,17 @@ const StuntsAthletes = ({
                                         <div className="flex gap-2 py-2">
                                             {feature.imdbLink && (
                                                 <Link href={feature.imdbLink} target="_blank" rel="noopener noreferrer">
-                                                    <img src="/icons/IMDB.svg" className="w-10 h-10" />
+                                                    <img src="/icons/IMDB.svg" alt={feature.title} className="w-10 h-10" />
                                                 </Link>
                                             )}
                                             {feature.youtubeLink && (
                                                 <Link href={feature.youtubeLink} target="_blank" rel="noopener noreferrer">
-                                                    <img src="/icons/Youtube.svg" className="w-10 h-10  " />
+                                                    <img src="/icons/Youtube.svg" alt={feature.title} className="w-10 h-10  " />
                                                 </Link>
                                             )}
                                             {feature.instagramLink && (
                                                 <Link href={feature.instagramLink} target="_blank" rel="noopener noreferrer">
-                                                    <img src="/icons/Instagram.svg" className="w-8 h-8" />
+                                                    <img src="/icons/Instagram.svg" alt={feature.title} className="w-8 h-8" />
                                                 </Link>
                                             )}
                                         </div>

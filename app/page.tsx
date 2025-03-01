@@ -32,7 +32,12 @@ export default function Home() {
               Come Train With Us
             </h2>
             <p className="text-lg max-w-xl  lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground text-center">
+              {
+                `
+            
             Marrakech's diverse training spots offer safe, dynamic environments for athletes to push their limits.
+            `
+              }
             </p>
           </div>
         </div>

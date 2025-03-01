@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import { Footer1 } from '@/components/sections/Footer'
 import Navbar from '@/components/sections/Navbar'
-import People from '@/lib/data' 
+import People from '@/lib/data'
 import { useSearchParams } from 'next/navigation'
 import { Badge } from "@/components/ui/badge"
 import HoverExpand from '@/components/ui/hover-expand'
@@ -39,9 +39,9 @@ const container = {
 
 const item = {
     hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
-    show: { 
-        opacity: 1, 
-        y: 0, 
+    show: {
+        opacity: 1,
+        y: 0,
         filter: 'blur(0px)',
         transition: {
             type: 'spring',
@@ -124,50 +124,56 @@ export default function StuntsPage() {
                     />
                 </div>
             </div>
-            
+
             <StuntsAthletes />
             <div id="tutoring" className="w-full py-20 lg:py-40 text-white bg-black">
-            <div className="container mx-auto">
-                <div className="flex flex-col gap-10">
-                    <div className="flex gap-4 flex-col mx-auto items-center justify-center">
-                        
-                        <div className="flex gap-2 flex-col items-center justify-center">
-                            <h2 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-left">
-                                 Cast 
-                            </h2>
-                            
+                <div className="container mx-auto">
+                    <div className="flex flex-col gap-10">
+                        <div className="flex gap-4 flex-col mx-auto items-center justify-center">
+
+                            <div className="flex gap-4 flex-col mx-auto items-center justify-center">
+                                <div>
+                                    <Badge className='bg-orange-500 hover:bg-orange-900'>Cast</Badge>
+                                </div>
+                                <div className="flex gap-2 flex-col items-center justify-center">
+                                    <h2 className="text-3xl text-white md:text-5xl tracking-tighter max-w-xl font-regular text-left">
+                                        Our Athletes in Action
+                                    </h2>
+                                    <p className="text-lg max-w-xl  lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground text-center">
+                                        we have also contributed to the following projects                                    </p>
+                                </div>
+                            </div>
                         </div>
+                        <motion.div
+                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                            variants={container}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true }}
+                        >
+                            {YoutubeVideos.map((video, index) => (
+                                <motion.div
+                                    key={index}
+                                    className="flex flex-col gap-2"
+                                    variants={item}
+                                >
+                                    <iframe
+                                        className='rounded-md aspect-video mb-2'
+                                        src={video.embedUrl}
+                                        title={video.title}
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                    />
+                                    <h3 className="text-xl tracking-tight">{video.title}</h3>
+                                    <p className="text-muted-foreground text-base">
+                                        {video.description}
+                                    </p>
+                                </motion.div>
+                            ))}
+                        </motion.div>
                     </div>
-                    <motion.div 
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-                        variants={container}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{ once: true }}
-                    >
-                        {YoutubeVideos.map((video, index) => (
-                            <motion.div 
-                                key={index} 
-                                className="flex flex-col gap-2"
-                                variants={item}
-                            >
-                                <iframe 
-                                    className='rounded-md aspect-video mb-2'
-                                    src={video.embedUrl}
-                                    title={video.title}
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                />
-                                <h3 className="text-xl tracking-tight">{video.title}</h3>
-                                <p className="text-muted-foreground text-base">
-                                    {video.description}
-                                </p>
-                            </motion.div>
-                        ))}
-                    </motion.div>
                 </div>
             </div>
-        </div>
             <Footer1 />
         </div>
     )
