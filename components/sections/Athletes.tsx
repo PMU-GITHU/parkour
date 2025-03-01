@@ -106,15 +106,14 @@ export function Athletes() {
                                 <motion.div
                                     className="w-full h-full flex items-center justify-center relative"
                                 >
-                                    <Image
+                                    <img
                                         src={image.Picture || "/athletes/placeholder.png"}
                                         alt="Athlete"
                                         className={cn(
                                             "rounded-xl w-full h-full object-cover",
                                             hoveredIndex === index ? "brightness-50" : "brightness-100"
                                         )}
-                                        height={500}
-                                        width={500}
+                                        
                                     />
                                     <AnimatePresence>
                                         <motion.div
