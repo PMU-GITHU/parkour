@@ -12,16 +12,16 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 // Sample locations data
 const locations = [
   { id: 1, name: "Oasis Spot", availableToPublic: false, coordinates: [-7.994174, 31.702513], image: "https://lh3.googleusercontent.com/gps-cs-s/AB5caB9yNWQ6JCWQhwXDHl2l_mBdc51l8uHcC2X7PaLJV23xNDwBif1ZejlrSYXhhtHLtMe_aNtLB-ruek_tBcbouOHtKelroFJCMwmmU2jKnsadjpPnJHbooWDlFvt01KHrCX7sbY0h=s508-k-no" },
-  { id: 2, name: "Al Badii", coordinates: [-8.004596, 31.662735], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 3, name: "Skatepark Menara", coordinates: [-8.014210, 31.614480], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 4, name: "Parc Bab lkssiba", coordinates: [-7.990188, 31.612615], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 5, name: "PMU Playground", coordinates: [-8.057949, 31.613872], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 6, name: "ANBER", coordinates: [-8.066505, 31.634299], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 7, name: "Malizya", coordinates: [-8.009430, 31.665456], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 8, name: "BOUKAR 1", coordinates: [-7.999190, 31.639464], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 9, name: "BOUKAR 2", coordinates: [-7.999153, 31.642749], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 10, name: "KOUTOUBIA", coordinates: [-7.992959, 31.623624], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 11, name: "Arsat ", coordinates: [-8.000554, 31.628086], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 2, name: "Al Badii",  availableToPublic: true,coordinates: [-8.004596, 31.662735], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 3, name: "Skatepark Menara", availableToPublic: true,coordinates: [-8.014210, 31.614480], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 4, name: "Parc Bab lkssiba", availableToPublic: true,coordinates: [-7.990188, 31.612615], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 5, name: "PMU Playground", availableToPublic: false,coordinates: [-8.057949, 31.613872], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 6, name: "ANBER", availableToPublic: true,coordinates: [-8.066505, 31.634299], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 7, name: "Malizya", availableToPublic: true,coordinates: [-8.009430, 31.665456], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 8, name: "BOUKAR 1", availableToPublic: true,coordinates: [-7.999190, 31.639464], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 9, name: "BOUKAR 2", availableToPublic: true,coordinates: [-7.999153, 31.642749], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 10, name: "KOUTOUBIA", availableToPublic: true,coordinates: [-7.992959, 31.623624], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 11, name: "Arsat ", availableToPublic: true,coordinates: [-8.000554, 31.628086], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
 ]
 
 export function MapView() {
@@ -82,7 +82,7 @@ export function MapView() {
   return (
     <div
       id="locations"
-      className="flex flex-col md:grid md:grid-cols-3 bg-black gap-4 px-4 lg:px-40 p-4 min-h-[600px]">
+      className="flex size-full flex-col md:grid md:grid-cols-3 bg-black gap-4 px-4 lg:px-40 p-4 min-h-[600px]">
       {/* Map Container */}
       <div className="md:col-span-2 h-[400px] md:h-auto order-2 md:order-1">
         <Card className="h-full">
@@ -92,7 +92,7 @@ export function MapView() {
 
       {/* Locations List */}
       <div className="space-y-5 order-1 w-full md:order-2 px-4 md:px-0 max-h-lg max-h-20">
-        <h2 className="text-3xl md:text-4xl lg:text-6xl text-white uppercase font-bold mb-6 md:mb-14">Locations</h2>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl text-orange-500  uppercase font-bold mb-6 md:mb-14">Locations</h2>
         <ScrollArea className="h-[29rem]  w-full ">
 
           {locations.map((location) => (

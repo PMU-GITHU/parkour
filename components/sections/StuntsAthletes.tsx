@@ -38,7 +38,7 @@ const StuntsAthletes = ({
         },
     },
     features = stunts.map((stunt) => ({
-        image: stunt.Picture || "/athletes/placeholder.png",
+        image: stunt.Picture || "/AthletesPic/placeholder.png",
         title: stunt.Name || "No name available",
         description: stunt.Description || "No description available",
         imdbLink: stunt.imdbLink || "",
@@ -61,14 +61,14 @@ const StuntsAthletes = ({
                         </p>
                         <div className="mt-8 flex flex-col gap-4 lg:flex-row">
                             <Button className="gap-2 w-3/4 text-black" variant={"outline"} size="lg" asChild>
-                                <Link href={buttons.primary.url}>{buttons.primary.text}</Link>
+                            <Link href={buttons.primary.url}>{buttons.primary.text}</Link>
                             </Button>
 
                         </div>
                     </div>
                     <div className="flex flex-col gap-12 md:gap-20">
                         {features.map((feature, index) => (
-                            <div key={index} className="rounded-xl border border-gray-300/40">
+                            <div key={index} className="rounded-xl flex flex-col  w-full border border-gray-300/40">
                                 <img
                                     src={feature.image}
                                     alt={feature.title}
@@ -81,17 +81,17 @@ const StuntsAthletes = ({
                                         </h3>
                                         <div className="flex gap-2 py-2">
                                             {feature.imdbLink && (
-                                                <Link href={feature.imdbLink}>
+                                                <Link href={feature.imdbLink} target="_blank" rel="noopener noreferrer">
                                                     <img src="/icons/IMDB.svg" className="w-10 h-10" />
                                                 </Link>
                                             )}
                                             {feature.youtubeLink && (
-                                                <Link href={feature.youtubeLink}>
+                                                <Link href={feature.youtubeLink} target="_blank" rel="noopener noreferrer">
                                                     <img src="/icons/Youtube.svg" className="w-10 h-10  " />
                                                 </Link>
                                             )}
                                             {feature.instagramLink && (
-                                                <Link href={feature.instagramLink}>
+                                                <Link href={feature.instagramLink} target="_blank" rel="noopener noreferrer">
                                                     <img src="/icons/Instagram.svg" className="w-8 h-8" />
                                                 </Link>
                                             )}
@@ -99,6 +99,7 @@ const StuntsAthletes = ({
                                     </div>
                                     <p className="text-muted-foreground">{feature.description}</p>
                                 </div>
+
 
                             </div>
                         ))}

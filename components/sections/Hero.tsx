@@ -9,7 +9,7 @@ export default function Hero() {
             <Navbar />
             <img
             id='hero'
-            src="/athletes/AAZ.jpg"
+            src="/AthletesPic/AAZ.jpg"
                 loading='eager'
                 alt="" className='size-full object-cover' />
             <div className="absolute inset-0 from-black via-transparent bg-gradient-to-t to-transparent"></div>

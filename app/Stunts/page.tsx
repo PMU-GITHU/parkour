@@ -16,15 +16,15 @@ const YoutubeVideos = [
         description: "Learn the fundamental techniques of parkour rolls and safe landings"
     },
     {
-        title: "Wall Running Techniques",
-        embedUrl: "https://www.youtube.com/embed/FD1rXJkWxss",
-        description: "Master the art of wall running with proper form and technique"
+        title: "Precision Jumps Tutorial",
+        embedUrl: "https://www.youtube.com/embed/NlQcok4O59A",
+        description: "Improve your accuracy with precision jumps in parkour"
     },
     {
-        title: "Precision Jumps Tutorial",
-        embedUrl: "https://www.youtube.com/embed/5VXH4JL88E8",
-        description: "Improve your accuracy with precision jumps in parkour"
-    }
+        title: "Wall Running Techniques",
+        embedUrl: "https://www.youtube.com/embed/L0bO74dGfJk",
+        description: "Master the art of wall running with proper form and technique"
+    },
 ]
 
 const container = {
@@ -78,9 +78,9 @@ export default function StuntsPage() {
                     style={{ opacity }}
                 >
                     <img
-                        src="/hhh.jpg"
+                        src="/stunt.jpg"
                         alt="Athletes Background"
-                        className="object-cover w-full h-full"
+                        className="object-cover w-full h-full filter brightness-50"
                     />
                 </motion.div>
                 <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
@@ -120,7 +120,7 @@ export default function StuntsPage() {
                         initialSelectedIndex={0}
                         thumbnailHeight={300}
                         modalImageSize={600}
-                        maxThumbnails={8}
+                        maxThumbnails={10}
                     />
                 </div>
             </div>
@@ -130,9 +130,7 @@ export default function StuntsPage() {
             <div className="container mx-auto">
                 <div className="flex flex-col gap-10">
                     <div className="flex gap-4 flex-col mx-auto items-center justify-center">
-                        <div>
-                            <Badge className='bg-orange-500 hover:bg-orange-900'>Cast</Badge>
-                        </div>
+                        
                         <div className="flex gap-2 flex-col items-center justify-center">
                             <h2 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-left">
                                  Cast 
@@ -182,7 +180,7 @@ const images = [
     "/movies/4.jpg",
     "/movies/5.jpg",
     "/movies/6.jpg",
-
+    "/movies/8.jpg",
+    "/movies/9.jpg",
     "/movies/godzilla.jpg",
-    
 ]

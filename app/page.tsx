@@ -9,6 +9,7 @@ import { MapView } from "@/components/sections/map-view";
 import Merch from "@/components/sections/Merch";
 import { Partners } from "@/components/sections/Partners";
 import Tutoring from "@/components/sections/Tuturing";
+import { Badge } from "@/components/ui/badge";
 
 
 export default function Home() {
@@ -21,7 +22,22 @@ export default function Home() {
       <Athletes />
       <CoachesPage />
       <Merch />
-      <MapView />
+      <div className="w-full bg-black  flex flex-col items-center justify-center">
+        <div className="flex gap-4 flex-col mx-auto items-center justify-center">
+          <div>
+            <Badge className='bg-orange-500 hover:bg-orange-900'>Locations</Badge>
+          </div>
+          <div className="flex gap-2 flex-col items-center justify-center">
+            <h2 className="text-3xl text-white md:text-5xl tracking-tighter max-w-xl font-regular text-left">
+              Come Train With Us
+            </h2>
+            <p className="text-lg max-w-xl  lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground text-center">
+            Marrakech's diverse training spots offer safe, dynamic environments for athletes to push their limits.
+            </p>
+          </div>
+        </div>
+        <MapView />
+      </div>
       <Cta />
       <Tutoring />
       <ContactUS />

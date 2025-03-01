@@ -95,7 +95,7 @@ export function Athletes() {
                                     className="w-full h-full flex items-center justify-center relative"
                                 >
                                     <img
-                                        src={image.Picture || "/Athletes/placeholder.png"}
+                                        src={image.Picture || "/AthletesPic/placeholder.png"}
                                         alt="Athlete"
                                         className={cn(
                                             "rounded-xl w-full h-full object-cover",
