@@ -1,9 +1,8 @@
 "use client"
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { TextEffect } from '../ui/text-effect'
 import { useInView } from 'react-intersection-observer'
-import { useEffect } from "react";
 import {
     Carousel,
     CarouselApi,
@@ -13,17 +12,6 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from '@/lib/utils'
-import Image from 'next/image'
-import {
-    MorphingDialog,
-    MorphingDialogTrigger,
-    MorphingDialogContent,
-    MorphingDialogTitle,
-    MorphingDialogImage,
-    MorphingDialogSubtitle,
-    MorphingDialogClose,
-    MorphingDialogContainer,
-} from '@/components/ui/morphing-dialog';
 import combinedArray from '@/lib/data'
 import { Button } from '../ui/button'
 import Link from 'next/link'
@@ -107,7 +95,7 @@ export function Athletes() {
                                     className="w-full h-full flex items-center justify-center relative"
                                 >
                                     <img
-                                        src={image.Picture || "/athletes/placeholder.png"}
+                                        src={image.Picture || "/Athletes/placeholder.png"}
                                         alt="Athlete"
                                         className={cn(
                                             "rounded-xl w-full h-full object-cover",
