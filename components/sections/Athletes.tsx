@@ -95,7 +95,7 @@ export function Athletes() {
                                     className="w-full h-full flex items-center justify-center relative"
                                 >
                                     <img
-                                        src={image.Picture || "/AthletesPic/placeholder.png"}
+                                        src={`${process.env.VERCEL_URL}/${image.Picture}` || "/AthletesPic/placeholder.png"}
                                         alt="Athlete"
                                         className={cn(
                                             "rounded-xl w-full h-full object-cover",
