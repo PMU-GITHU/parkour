@@ -4,6 +4,7 @@ import { assert } from "node:console";
 import { Athletes } from "./Athletes";
 import People, { stunts } from "@/lib/data";
 import { Instagram, Youtube } from "lucide-react";
+import Image from "next/image";
 
 interface Feature {
     image: string;
@@ -69,7 +70,9 @@ const StuntsAthletes = ({
                     <div className="flex flex-col gap-12 md:gap-20">
                         {features.map((feature, index) => (
                             <div key={index} className="rounded-xl flex flex-col  w-full border border-gray-300/40">
-                                <img
+                                <Image
+                                    height={400}
+                                    width={400}
                                     src={feature.image}
                                     alt={feature.title}
                                     className="aspect-square w-full rounded-b-none rounded-t-xl   object-cover"

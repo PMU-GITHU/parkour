@@ -15,6 +15,7 @@ import { cn } from '@/lib/utils'
 import combinedArray from '@/lib/data'
 import { Button } from '../ui/button'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function Athletes() {
     const { ref, inView } = useInView({
@@ -22,7 +23,7 @@ export function Athletes() {
         threshold: 0.1
     });
     const [api, setApi] = useState<CarouselApi>();
-   
+
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
 
@@ -94,14 +95,15 @@ export function Athletes() {
                                 <motion.div
                                     className="w-full h-full flex items-center justify-center relative"
                                 >
-                                    <img
-                                        src={`${process.env.VERCEL_URL}/${image.Picture}` || "/AthletesPic/placeholder.png"}
+                                    <Image
+                                        src={image.Picture || "/AthletesPic/placeholder.png"}
                                         alt="Athlete"
                                         className={cn(
                                             "rounded-xl w-full h-full object-cover",
                                             hoveredIndex === index ? "brightness-50" : "brightness-100"
                                         )}
-                                        
+                                        height={300}
+                                        width={300}
                                     />
                                     <AnimatePresence>
                                         <motion.div
