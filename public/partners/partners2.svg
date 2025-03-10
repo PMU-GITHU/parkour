@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2480" height="3508" viewBox="0 0 2480 3508">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 341.667px;
+        font-family: BatmanForeverOutline;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        font-size: 104.167px;
+        font-family: Archivo;
+      }
+    </style>
+  </defs>
+  <text id="YASU" class="cls-1" transform="matrix(2.204, 0, 0, 2.204, 35.114, 1845.19)">YASU</text>
+  <text id="PRODUCTION" class="cls-2" transform="matrix(2.204, 0, 0, 2.204, 475.907, 2116.275)">PRODUCTION</text>
+</svg>

@@ -16,6 +16,9 @@ import combinedArray from '@/lib/data'
 import { Button } from '../ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
+import People from '@/lib/data'
+import { useRouter } from 'next/navigation'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 
 export function Athletes() {
     const { ref, inView } = useInView({
@@ -23,9 +26,20 @@ export function Athletes() {
         threshold: 0.1
     });
     const [api, setApi] = useState<CarouselApi>();
+    const router = useRouter();
+    const [selectedStunt, setSelectedStunt] = useState<typeof People[number] | null>(null);
 
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
+    const handleCardClick = (stunt: typeof People[number]) => {
+        router.push(`?id=${stunt.ID}`, { scroll: false });
+        setSelectedStunt(stunt);
+    };
+
+    const closeModal = () => {
+        setSelectedStunt(null);
+        router.push('?id=', { scroll: false });
+    };
 
     return (
         <div
@@ -85,10 +99,9 @@ export function Athletes() {
                                 onMouseEnter={() => {
                                     setHoveredIndex(index);
                                 }}
-                                onClick={() => {
-                                    window.location.href = `/Athletes/${image.ID}`
-                                }
-                                }
+                                onClick={() => handleCardClick(image)}
+
+
                                 onMouseLeave={() => setHoveredIndex(null)}
                             >
 
@@ -124,6 +137,45 @@ export function Athletes() {
                         ))}
                     </CarouselContent>
                 </Carousel>
+
+                <Dialog open={!!selectedStunt} onOpenChange={closeModal}>
+                <DialogContent className="max-w-[1200px] w-[90vw] bg-white/5  backdrop-blur-md border-none">
+                    <div className="grid grid-cols-[500px_1fr] gap-12 p-8">
+                        {selectedStunt?.Picture && (
+                            <div className="relative aspect-square">
+                                <Image
+                                    src={selectedStunt.Picture}
+                                    alt={selectedStunt.Name}
+                                    fill
+                                    className="rounded-lg object-cover"
+                                />
+                            </div>
+                        )}
+                        <div className="flex flex-col">
+                            <DialogHeader>
+                                <DialogTitle className="text-4xl font-bold mb-6 text-white">
+                                    {selectedStunt?.Name}
+                                </DialogTitle>
+                            </DialogHeader>
+                            <div className="space-y-6">
+                                <p className="text-gray-200 text-xl leading-relaxed">
+                                    {selectedStunt?.Description}
+                                </p>
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div>
+                                        <p className="text-lg text-gray-400">Age</p>
+                                        <p className="font-medium text-white text-xl">{selectedStunt?.Age}</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-lg text-gray-400">Type</p>
+                                        <p className="font-medium text-white text-xl capitalize">{selectedStunt?.Type}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </DialogContent>
+            </Dialog>
             </motion.div>
         </div>
     )

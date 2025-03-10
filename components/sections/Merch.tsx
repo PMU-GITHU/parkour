@@ -10,10 +10,10 @@ export default function Merch() {
 
   return (
     <main className="flex min-h-screen flex-col relative items-center justify-between bg-black py-20">
-      <div className="absolute flex flex-col justify-center items-center size-full bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_900px_at_50%_200px,transparent,black)] backdrop-blur-md z-40">
+      <div className="absolute flex flex-col justify-center items-center size-full bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_900px_at_50%_200px,transparent,black)] backdrop-blur-md z-20">
 
         <h1 className="text-4xl md:text-6xl max-w- 2 xl font-bold text-center text-cyan-50">
-          Stay Tuned For Our Next Collection
+          Stay Tuned For Our first Drop
         </h1>
 
         <AnimatedNumberCountdown

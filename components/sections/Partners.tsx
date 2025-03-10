@@ -31,34 +31,43 @@ export const Partners = () => {
         return () => clearInterval(interval);
     }, [api, hoveredIndex]);
 
+
+    const partnersList = [
+        {
+            id: 1,
+            image: "/partners/partner1.png",
+            url : "https://google.com"
+        },
+        {
+            id: 2,
+            image: "/partners/partner2.png",
+            url : "https://google.com"
+        },
+    ]
+     
     return (
         <div className="w-full bg-black text-white py-20 lg:py-40">
             <div className="container bg-black mx-auto">
-                <div className="grid grid-cols-5 gap-10 items-center">
-                    <h3 className="text-3xl tracking-tighter lg:max-w-xl font-regular text-left">
+                <div className="grid grid-cols-3 gap-10 items-center">
+                    <h3 className="text-5xl tracking-tighter lg:max-w-xl font-regular text-left">
                         Partners & Sponsors
                     </h3>
-                    <div className="relative w-full col-span-4">
-                        <div className="bg-gradient-to-r from-black   to-transparent z-10 absolute left-0 top-0 right-0 bottom-0 w-2/12 h-full"></div>
-                        <Carousel opts={{
-                            loop: true,
-                        }} setApi={setApi} className="w-full">
-                            <CarouselContent>
-                                {Array.from({ length: 25 }).map((_, index) => (
-                                    <CarouselItem
+                    <div className="relative w-full  flex">
+                          
+                                {partnersList.map((_, index) => (
+                                    <div
                                         onMouseEnter={() => {
                                             setHoveredIndex(index);
                                         }}
                                         onMouseLeave={() => setHoveredIndex(null)}
-                                        onClick={() => window.open("https://google.com", "_blank")}
-                                        className="basis-1/4 lg:basis-1/6   cursor-pointer"
+                                        onClick={() => window.open(_.url, "_blank")}
+                                        className="w-[20rem] h-[20rem]  cursor-pointer"
                                         key={index}
                                     >
-                                        <img src="/partner1.png" alt="" className="object-cover size-full" />
-                                    </CarouselItem>
+                                        <img src={_.image} alt=" " className="object-cover size-full" />
+                                    </div>
                                 ))}
-                            </CarouselContent>
-                        </Carousel>
+                           
                     </div>
                 </div>
             </div>

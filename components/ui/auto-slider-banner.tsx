@@ -29,8 +29,9 @@ export function AutoSliderBanner() {
   }
 
   const [titleNumber, setTitleNumber] = useState(0);
+
   const titles = useMemo(
-    () => ["durable", "lightweight", "high-performance", "versatile", "breathable"],
+    () => ["durable", "lightweight", "versatile", "breathable"],
     []
   );
 
@@ -62,8 +63,8 @@ export function AutoSliderBanner() {
       <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center">
         <div className="flex gap-4 flex-col">
           <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
-            <span className="text-cyan-50">
-              {"Parkour Gear That's"}
+            <span className="text-cyan-50 font-bold">
+              {"Our Clothing is "}
             </span>
             <span className="relative text-orange-300 flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
               &nbsp;

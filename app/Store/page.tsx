@@ -7,7 +7,7 @@ import React from 'react'
 
 export default function Store() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between bg-black">
+        <main className="flex min-h-screen flex-col items-center justify-between bg-white">
             <Navbar />
             {/* Full-screen Auto-sliding Banner */}
             <AutoSliderBanner />

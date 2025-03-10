@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
+import {  motion, useScroll, useTransform } from 'framer-motion'
 import { Footer1 } from '@/components/sections/Footer'
 import Navbar from '@/components/sections/Navbar'
 import People from '@/lib/data'
@@ -8,23 +8,28 @@ import { useSearchParams } from 'next/navigation'
 import { Badge } from "@/components/ui/badge"
 import HoverExpand from '@/components/ui/hover-expand'
 import { StuntsAthletes } from '@/components/sections/StuntsAthletes'
-
+import { Cta } from '@/components/sections/CTA'
+ 
 const YoutubeVideos = [
     {
-        title: "Parkour Basics: Rolls and Landings",
-        embedUrl: "https://www.youtube.com/embed/WXsXWrW1h9c",
-        description: "Learn the fundamental techniques of parkour rolls and safe landings"
+         embedUrl: "https://www.youtube.com/embed/WXsXWrW1h9c", 
+    },
+    { 
+        embedUrl: "https://www.youtube.com/embed/NlQcok4O59A", 
+    },
+    { 
+        embedUrl: "https://www.youtube.com/embed/L0bO74dGfJk", 
     },
     {
-        title: "Precision Jumps Tutorial",
-        embedUrl: "https://www.youtube.com/embed/NlQcok4O59A",
-        description: "Improve your accuracy with precision jumps in parkour"
+       
+        embedUrl: "https://www.youtube.com/embed/dwCcPPHKXqw?si=fhGggG9duKhA-M8H",
+         
     },
     {
-        title: "Wall Running Techniques",
-        embedUrl: "https://www.youtube.com/embed/L0bO74dGfJk",
-        description: "Master the art of wall running with proper form and technique"
-    },
+       
+        embedUrl: "https://www.youtube.com/embed/-qYlKq-RYUk?si=o_5L61rVX3Cvyyw-",
+         
+    }
 ]
 
 const container = {
@@ -160,20 +165,19 @@ export default function StuntsPage() {
                                     <iframe
                                         className='rounded-md aspect-video mb-2'
                                         src={video.embedUrl}
-                                        title={video.title}
+                                        title={"YouTube Video"}
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen
                                     />
-                                    <h3 className="text-xl tracking-tight">{video.title}</h3>
-                                    <p className="text-muted-foreground text-base">
-                                        {video.description}
-                                    </p>
+                                     
                                 </motion.div>
                             ))}
                         </motion.div>
                     </div>
                 </div>
             </div>
+
+            <Cta />
             <Footer1 />
         </div>
     )

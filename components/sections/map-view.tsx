@@ -11,17 +11,16 @@ import { LocationsIMages } from "../location-images"
 import { ScrollArea } from "@/components/ui/scroll-area"
 // Sample locations data
 const locations = [
-  { id: 1, name: "Oasis Spot", availableToPublic: false, coordinates: [-7.994174, 31.702513], image: "https://lh3.googleusercontent.com/gps-cs-s/AB5caB9yNWQ6JCWQhwXDHl2l_mBdc51l8uHcC2X7PaLJV23xNDwBif1ZejlrSYXhhtHLtMe_aNtLB-ruek_tBcbouOHtKelroFJCMwmmU2jKnsadjpPnJHbooWDlFvt01KHrCX7sbY0h=s508-k-no" },
-  { id: 2, name: "Al Badii",  availableToPublic: true,coordinates: [-8.004596, 31.662735], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 3, name: "Skatepark Menara", availableToPublic: true,coordinates: [-8.014210, 31.614480], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 4, name: "Parc Bab lkssiba", availableToPublic: true,coordinates: [-7.990188, 31.612615], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 5, name: "PMU Playground", availableToPublic: false,coordinates: [-8.057949, 31.613872], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 6, name: "ANBER", availableToPublic: true,coordinates: [-8.066505, 31.634299], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 7, name: "Malizya", availableToPublic: true,coordinates: [-8.009430, 31.665456], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 8, name: "BOUKAR 1", availableToPublic: true,coordinates: [-7.999190, 31.639464], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 9, name: "BOUKAR 2", availableToPublic: true,coordinates: [-7.999153, 31.642749], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 10, name: "KOUTOUBIA", availableToPublic: true,coordinates: [-7.992959, 31.623624], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-  { id: 11, name: "Arsat ", availableToPublic: true,coordinates: [-8.000554, 31.628086], image: "https://images.pexels.com/photos/1703312/pexels-photo-1703312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+  { id: 1, name: "Oasis Spot", availableToPublic: false, coordinates: [-7.994174, 31.702513], image: "/Locations/oasis.jpg" },
+  { id: 2, name: "Al Badii",  availableToPublic: true,coordinates: [-8.004596, 31.662735], image: "/Locations/albadi.jpg" },
+  { id: 3, name: "Skatepark Menara", availableToPublic: true,coordinates: [-8.014210, 31.614480], image: "/Locations/park.jpg" },
+  { id: 5, name: "PMU Playground", availableToPublic: false,coordinates: [-8.057949, 31.613872], image: "/Locations/pmu.jpg" },
+  { id: 6, name: "ANBER", availableToPublic: true,coordinates: [-8.066505, 31.634299], image: "/Locations/anbar.jpg" },
+  { id: 7, name: "Malizya", availableToPublic: true,coordinates: [-8.009430, 31.665456], image: "/Locations/malizia.jpg" },
+  { id: 8, name: "BOUKAR 1", availableToPublic: true,coordinates: [-7.999190, 31.639464], image: "/Locations/boukar.jpg" },
+  { id: 9, name: "BOUKAR 2", availableToPublic: true,coordinates: [-7.999153, 31.642749], image: "/Locations/boukar-2.jpg" },
+  { id: 10, name: "KOUTOUBIA", availableToPublic: true,coordinates: [-7.992959, 31.623624], image: "/Locations/koutobia.jpg" },
+  { id: 11, name: "Arsat ", availableToPublic: true,coordinates: [-8.000554, 31.628086], image: "/Locations/arsat.jpg" },
 ]
 
 export function MapView() {

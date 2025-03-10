@@ -19,7 +19,7 @@ const navitems = [
     },
     {
         name: 'Athletes',
-        link: '/#athletes'
+        link: '/Athletes'
     },
     {
         name: "Stunts",
@@ -27,7 +27,8 @@ const navitems = [
     },
     {
         name: 'Store',
-        link: '/#store'
+        link: '/Store',
+        disabled: true
     },
     {
         name: 'Locations',
