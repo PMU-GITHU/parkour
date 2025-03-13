@@ -93,43 +93,53 @@ export default function Navbar() {
                     Parkour <span className='text-orange-500'> MA</span>
                 </motion.h1>
 
-                <motion.button
-                    aria-expanded={crossed}
-                    onClick={() => setCrossedState((e) => !e)}
-                    className={
-                        'flex aspect-square z-50 h-fit select-none flex-col items-center justify-center rounded-full'
-                    }
-                    initial={{ opacity: 0, rotateX: 90, y: 10 }}
-                    animate={{ opacity: 1, rotateX: 0, y: 0 }}
-                    transition={{ duration: 0.2, delay: 0.7 }}
-                >
-                    <motion.div
-                        style={{
-                            width: '40px',
-                            borderTop: '2px solid white',
-                            transformOrigin: 'center'
-                        }}
-                        initial={{ translateY: '-3px' }}
-                        animate={
-                            crossed ? { rotate: '45deg', translateY: '1px' } : { translateY: '-3px', rotate: '0deg' }
+                <motion.div className="flex items-center gap-4">
+                    <motion.span
+                        className="text-white text-sm uppercase"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.2, delay: 0.7 }}
+                    >
+                        Menu
+                    </motion.span>
+                    <motion.button
+                        aria-expanded={crossed}
+                        onClick={() => setCrossedState((e) => !e)}
+                        className={
+                            'flex aspect-square z-50 h-fit select-none flex-col items-center justify-center rounded-full'
                         }
-                        transition={{ bounce: 0, duration: 0.1 }}
-                    />
-                    <motion.div
-                        transition={{ bounce: 0, duration: 0.1 }}
-                        style={{
-                            width: '40px',
-                            borderTop: '2px solid white',
-                            transformOrigin: 'center'
-                        }}
-                        initial={{ translateY: '3px' }}
-                        animate={
-                            crossed
-                                ? { rotate: '-45deg', translateY: '-1px' }
-                                : { translateY: '3px', rotate: '0deg', scaleX: 1 }
-                        }
-                    />
-                </motion.button>
+                        initial={{ opacity: 0, rotateX: 90, y: 10 }}
+                        animate={{ opacity: 1, rotateX: 0, y: 0 }}
+                        transition={{ duration: 0.2, delay: 0.7 }}
+                    >
+                        <motion.div
+                            style={{
+                                width: '40px',
+                                borderTop: '2px solid white',
+                                transformOrigin: 'center'
+                            }}
+                            initial={{ translateY: '-3px' }}
+                            animate={
+                                crossed ? { rotate: '45deg', translateY: '1px' } : { translateY: '-3px', rotate: '0deg' }
+                            }
+                            transition={{ bounce: 0, duration: 0.1 }}
+                        />
+                        <motion.div
+                            transition={{ bounce: 0, duration: 0.1 }}
+                            style={{
+                                width: '40px',
+                                borderTop: '2px solid white',
+                                transformOrigin: 'center'
+                            }}
+                            initial={{ translateY: '3px' }}
+                            animate={
+                                crossed
+                                    ? { rotate: '-45deg', translateY: '-1px' }
+                                    : { translateY: '3px', rotate: '0deg', scaleX: 1 }
+                            }
+                        />
+                    </motion.button>
+                </motion.div>
             </motion.div>
 
             <AnimatePresence>
@@ -155,7 +165,7 @@ export default function Navbar() {
                                     key={item.name}
                                     href={item.link}
                                     
-                                    className={`text-white text-4xl [@media(max-height:690px)]:text-5xl sm:text-5xl md:text-6xl   lg:text-7xl xl:text-8xl font-bold uppercase hover:text-orange-500 duration-500 ease-in-out px-4 py-2 sm:px-6 sm:py-3
+                                    className={`text-white text-4xl [@media(max-height:800px)]:text-5xl sm:text-5xl md:text-6xl   lg:text-7xl xl:text-8xl font-bold uppercase hover:text-orange-500 duration-500 ease-in-out px-4 py-2 sm:px-6 sm:py-3
                                          flex items-end justify-center gap-2
                                         `}
                                     onClick={(e) => handleLinkClick(e, item.link)}
@@ -167,7 +177,7 @@ export default function Navbar() {
                                     </TextEffect>
                                     {
                                         item.disabled && (
-                                            <span className='text-red-500 text-sm italic'> (Coming Soon)</span>
+                                            <TextEffect preset='fade-in-blur' speedReveal={1.1} className='text-red-500 text-sm italic'> (Coming Soon)</TextEffect>
                                         )
                                     }
                                 </motion.a>

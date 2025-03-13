@@ -43,7 +43,7 @@ export function Athletes() {
 
     return (
         <div
-            className='w-full bg-black text-white text-4xl font-bold items-start gap-y-5 justify-center flex flex-col h-screen relative p-4 md:p-8'
+            className='w-full bg- black text-white text-4xl font-bold items-start gap-y-5 justify-center flex flex-col h-screen relative p-4 md:p-8'
             ref={ref}
         >
             <motion.div
@@ -77,7 +77,7 @@ export function Athletes() {
                     opts={{
                         align: "center",
                         containScroll: "keepSnaps",
-                        slidesToScroll: 3,
+                        slidesToScroll: 1,
                         inViewThreshold: 0.5,
                         loop: true,
                     }}

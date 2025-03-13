@@ -19,7 +19,7 @@ export function CoachesPage() {
         <div
             id='coaches'
 
-            className='w-full bg-black text-white text-4xl font-bold items-start justify-center flex flex-col min-h-screen relative p-4 md:p-8'
+            className='w-full bg- black text-white text-4xl font-bold items-start justify-center flex flex-col min-h-screen relative p-4 md:p-8'
             ref={ref}
         >
 

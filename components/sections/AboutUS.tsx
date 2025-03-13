@@ -13,7 +13,7 @@ export default function AboutUS() {
     return (
         <div
             id='about-us'
-            className='w-full bg-black text-white flex flex-col lg:flex-row h-auto lg:h-screen p-4 lg:p-8'
+            className='w-full bg- black text-white flex flex-col lg:flex-row h-auto lg:h-screen p-4 lg:p-8'
             ref={ref}
         >
             <motion.div
@@ -42,7 +42,7 @@ export default function AboutUS() {
                 </TextEffect>
             </motion.div>
             <motion.div
-                className='w-full lg:w-1/2 flex items-center justify-center p-4 lg:p-20'
+                className='w-full lg:w-1/2 flex items-center justify-center z-30 p-4 lg:p-20'
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
