@@ -31,43 +31,42 @@ export const Partners = () => {
         return () => clearInterval(interval);
     }, [api, hoveredIndex]);
 
-
     const partnersList = [
         {
             id: 1,
             image: "/partners/partner1.png",
-            url : "https://google.com"
+            url: "https://google.com"
         },
         {
             id: 2,
             image: "/partners/partner2.png",
-            url : "https://google.com"
+            url: "https://google.com"
         },
     ]
-     
+
     return (
-        <div className="w-full bg-black text-white py-20 lg:py-40">
-            <div className="container bg-black mx-auto">
-                <div className="grid grid-cols-3 gap-10 items-center">
-                    <h3 className="text-5xl tracking-tighter lg:max-w-xl font-regular text-left">
+        <div className="w-full bg-black text-white py-12 md:py-20 lg:py-40">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 items-center">
+                    <h3 className="text-3xl sm:text-4xl md:text-5xl tracking-tighter font-regular text-center md:text-left">
                         Partners & Sponsors
                     </h3>
-                    <div className="relative w-full  flex">
-                          
-                                {partnersList.map((_, index) => (
-                                    <div
-                                        onMouseEnter={() => {
-                                            setHoveredIndex(index);
-                                        }}
-                                        onMouseLeave={() => setHoveredIndex(null)}
-                                        onClick={() => window.open(_.url, "_blank")}
-                                        className="w-[20rem] h-[20rem]  cursor-pointer"
-                                        key={index}
-                                    >
-                                        <img src={_.image} alt=" " className="object-cover size-full" />
-                                    </div>
-                                ))}
-                           
+                    <div className="md:col-span-2 relative w-full flex flex-wrap justify-center gap-4 md:gap-6">
+                        {partnersList.map((_, index) => (
+                            <div
+                                onMouseEnter={() => setHoveredIndex(index)}
+                                onMouseLeave={() => setHoveredIndex(null)}
+                                onClick={() => window.open(_.url, "_blank")}
+                                className="w-[12rem] h-[12rem] sm:w-[15rem] sm:h-[15rem] md:w-[18rem] md:h-[18rem] lg:w-[20rem] lg:h-[20rem] cursor-pointer"
+                                key={index}
+                            >
+                                <img 
+                                    src={_.image} 
+                                    alt="Partner logo" 
+                                    className="object-cover w-full h-full" 
+                                />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
