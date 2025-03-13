@@ -1,5 +1,3 @@
-import Threads from "@/components/bg";
-import Iridescence from "@/components/irsisdence";
 import AboutUS from "@/components/sections/AboutUS";
 import { Athletes } from "@/components/sections/Athletes";
 import { CoachesPage } from "@/components/sections/Coachs";
@@ -11,6 +9,8 @@ import { MapView } from "@/components/sections/map-view";
 import Merch from "@/components/sections/Merch";
 import { Partners } from "@/components/sections/Partners";
 import Tutoring from "@/components/sections/Tuturing";
+import LiquidChrome from "@/components/spectrum";
+import Particles from "@/components/sprinkles";
 import { Badge } from "@/components/ui/badge";
 
 export default function Home() {
@@ -18,16 +18,19 @@ export default function Home() {
   return (
     <main className="">
       <Hero />
-      <div className="size-full relative bg-gradient-to-b from-black/80 via-black/50 to-transparent">
+      <div className="size-full relative bg-black">
         <div className=" h-40 w-full bg-gradient-to-b from-black to-transparent absolute top-0 z-30" />
 
-        <div className="w-full h-full absolute">
-
-          <Iridescence
-            color={[0.1, 0.05, 0]} // Dark base with orange tint
-            mouseReact={false}
-            amplitude={0.1}
-            speed={1.0}
+        <div className="w-full h-full absolute ">
+          <Particles
+            particleColors={['#ffffff', '#ffffff']}
+            particleCount={10000}
+            particleSpread={40}
+            speed={0.1}
+            particleBaseSize={100}
+            moveParticlesOnHover={false}
+            alphaParticles={false}
+            disableRotation={false}
           />
         </div>
 
@@ -36,7 +39,7 @@ export default function Home() {
         <Athletes />
         <CoachesPage />
         <Merch />
-        <div className="w-full bg-black  flex flex-col items-center justify-center">
+        <div className="w-full   flex flex-col items-center z-30 justify-center">
           <div className="flex gap-4 flex-col mx-auto items-center justify-center">
             <div>
               <Badge className='bg-orange-500 hover:bg-orange-900'>Locations</Badge>
