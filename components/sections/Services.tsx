@@ -102,7 +102,7 @@ export default function Services() {
                                     className='absolute inset-0 object-cover size-full'
                                 />
                                 <ProgressiveBlur
-                                    className='pointer-events-none absolute bottom-0 left-0 h-[75%] bg-gradient-to-t from-black/40 to-transparent w-full'
+                                    className='pointer-events-none absolute bottom-0 left-0 h-[75%] bg-gradient-to-t from-black/70 to-transparent w-full'
                                     blurIntensity={0.5}
                                     animate={'visible'}
                                     variants={{

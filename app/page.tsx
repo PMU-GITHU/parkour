@@ -1,4 +1,3 @@
-"use client"
 import AboutUS from "@/components/sections/AboutUS";
 import { Athletes } from "@/components/sections/Athletes";
 import { CoachesPage } from "@/components/sections/Coachs";
@@ -13,8 +12,7 @@ import Services from "@/components/sections/Services";
 import Tutoring from "@/components/sections/Tuturing";
 import Particles from "@/components/sprinkles";
 import { Badge } from "@/components/ui/badge";
-import { useEffect } from "react";
-
+ 
 export default function Home() {
  
 
