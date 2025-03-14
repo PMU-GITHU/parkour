@@ -8,8 +8,8 @@ import Hero from "@/components/sections/Hero";
 import { MapView } from "@/components/sections/map-view";
 import Merch from "@/components/sections/Merch";
 import { Partners } from "@/components/sections/Partners";
+import Services from "@/components/sections/Services";
 import Tutoring from "@/components/sections/Tuturing";
-import LiquidChrome from "@/components/spectrum";
 import Particles from "@/components/sprinkles";
 import { Badge } from "@/components/ui/badge";
 
@@ -36,6 +36,7 @@ export default function Home() {
 
         <Partners />
         <AboutUS />
+        <Services />
         <Athletes />
         <CoachesPage />
         <Merch />
