@@ -3,7 +3,7 @@ import Link from "next/link";
 import { assert } from "node:console";
 import { Athletes } from "./Athletes";
 import People, { stunts } from "@/lib/data";
-import { Instagram, Youtube } from "lucide-react";
+import { Instagram, Youtube, YoutubeIcon } from "lucide-react";
 import Image from "next/image";
 
 interface Feature {
@@ -69,7 +69,7 @@ const StuntsAthletes = ({
                     </div>
                     <div className="flex flex-col gap-12 md:gap-20">
                         {features.map((feature, index) => (
-                            <div key={index} className="rounded-xl flex flex-col  w-full border border-gray-300/40">
+                            <div key={index} className="rounded-xl flex flex-col  w-full border border-gray-300/10">
                                 <Image
                                     height={400}
                                     width={400}
@@ -90,7 +90,7 @@ const StuntsAthletes = ({
                                             )}
                                             {feature.youtubeLink && (
                                                 <Link href={feature.youtubeLink} target="_blank" rel="noopener noreferrer">
-                                                    <Image height={40} width={40} src="/icons/Youtube.svg" alt={feature.title} className="w-10 h-10  " />
+                                                    <YoutubeIcon  className="w-10 h-10  text-red-500" />
                                                 </Link>
                                             )}
                                             {feature.instagramLink && (
