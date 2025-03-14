@@ -53,10 +53,11 @@ export const Footer1 = () => {
                 },
             ],
         },
+
     ];
 
     return (
-        <div className="w-full py-20 lg:py-40 bg-foreground absolute text-background z-50">
+        <div className="w-full py-20 lg:py-40 bg-foreground absolute text-background z-40">
             <div className="container mx-auto">
                 <div className="grid lg:grid-cols-2 gap-10 items-center">
                     <div className="flex gap-8 flex-col items-start">
@@ -72,6 +73,7 @@ export const Footer1 = () => {
                             <div className="flex flex-col text-sm max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
                                 <p>Marrakech, Morocco</p>
                                 <p>Urban Movement Community</p>
+                                <Link href={"/TermsOfServices"} className="hover:text-orange-500 duration-300 ease-in-out">Terms of Service</Link>
                             </div>
                         </div>
                     </div>

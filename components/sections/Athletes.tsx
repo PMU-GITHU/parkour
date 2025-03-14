@@ -139,43 +139,43 @@ export function Athletes() {
                 </Carousel>
 
                 <Dialog open={!!selectedStunt} onOpenChange={closeModal}>
-                <DialogContent className="max-w-[1200px] w-[90vw] bg-white/5  backdrop-blur-md border-none">
-                    <div className="grid grid-cols-[500px_1fr] gap-12 p-8">
-                        {selectedStunt?.Picture && (
-                            <div className="relative aspect-square">
-                                <Image
-                                    src={selectedStunt.Picture}
-                                    alt={selectedStunt.Name}
-                                    fill
-                                    className="rounded-lg object-cover"
-                                />
-                            </div>
-                        )}
-                        <div className="flex flex-col">
-                            <DialogHeader>
-                                <DialogTitle className="text-4xl font-bold mb-6 text-white">
-                                    {selectedStunt?.Name}
-                                </DialogTitle>
-                            </DialogHeader>
-                            <div className="space-y-6">
-                                <p className="text-gray-200 text-xl leading-relaxed">
-                                    {selectedStunt?.Description}
-                                </p>
-                                <div className="grid grid-cols-2 gap-6">
-                                    <div>
-                                        <p className="text-lg text-gray-400">Age</p>
-                                        <p className="font-medium text-white text-xl">{selectedStunt?.Age}</p>
-                                    </div>
-                                    <div>
-                                        <p className="text-lg text-gray-400">Type</p>
-                                        <p className="font-medium text-white text-xl capitalize">{selectedStunt?.Type}</p>
+                    <DialogContent className="max-w-[1200px] w-[90vw] h-[90vh] sm:h-auto bg-white/5 backdrop-blur-md border-none">
+                        <div className="grid grid-cols-1 sm:grid-cols-[300px_1fr] lg:grid-cols-[500px_1fr] gap-6 sm:gap-12 p-4 sm:p-8 overflow-y-auto">
+                            {selectedStunt?.Picture && (
+                                <div className="relative aspect-square w-full sm:w-auto">
+                                    <Image
+                                        src={selectedStunt.Picture}
+                                        alt={selectedStunt.Name}
+                                        fill
+                                        className="rounded-lg object-cover"
+                                    />
+                                </div>
+                            )}
+                            <div className="flex flex-col">
+                                <DialogHeader>
+                                    <DialogTitle className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-white">
+                                        {selectedStunt?.Name}
+                                    </DialogTitle>
+                                </DialogHeader>
+                                <div className="space-y-4 sm:space-y-6">
+                                    <p className="text-gray-200 text-base sm:text-lg lg:text-xl leading-relaxed">
+                                        {selectedStunt?.Description}
+                                    </p>
+                                    <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                                        <div>
+                                            <p className="text-base sm:text-lg text-gray-400">Age</p>
+                                            <p className="font-medium text-white text-lg sm:text-xl">{selectedStunt?.Age}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-base sm:text-lg text-gray-400">Type</p>
+                                            <p className="font-medium text-white text-lg sm:text-xl capitalize">{selectedStunt?.Type}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </DialogContent>
-            </Dialog>
+                    </DialogContent>
+                </Dialog>
             </motion.div>
         </div>
     )

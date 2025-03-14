@@ -31,7 +31,7 @@ interface StuntsAthletesProps {
 
 const StuntsAthletes = ({
     heading = "Our Stunts Athletes",
-    description = "We have a proven track record of success in the industry, working with some of the best athletes in the world.",
+    description = "Our elite stunt athletes specialize in high-risk movements, from rooftop jumps to fight choreography. They bring action to life in films, commercials, and live performances with unmatched skill and precision.",
     buttons = {
         primary: {
             text: "Contact Us",
@@ -90,7 +90,7 @@ const StuntsAthletes = ({
                                             )}
                                             {feature.youtubeLink && (
                                                 <Link href={feature.youtubeLink} target="_blank" rel="noopener noreferrer">
-                                                    <img src="/icons/Youtube.svg" alt={feature.title} className="w-10 h-10  " />
+                                                    <Image height={40} width={40} src="/icons/Youtube.svg" alt={feature.title} className="w-10 h-10  " />
                                                 </Link>
                                             )}
                                             {feature.instagramLink && (

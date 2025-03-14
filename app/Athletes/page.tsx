@@ -65,7 +65,7 @@ export default function AthletesPage() {
             </div>
 
             {/* Hero Section with Fixed Image */}
-            <div className="h-screen relative  bg-black">
+            <div className="h-screen relative bg-black">
                 <motion.div
                     className="fixed inset-0 z-0"
                     style={{ opacity }}
@@ -73,13 +73,14 @@ export default function AthletesPage() {
                     <img
                         src="/hhh.jpg"
                         alt="Athletes Background"
-                    
-                        className="object-cover"
+                        className="object-cover w-full h-full"
+                        srcSet="/hhh.jpg 1920w, /hhh-mobile.jpg 768w"
+                        sizes="(max-width: 768px) 100vw, 100vw"
                     />
                 </motion.div>
                 <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
                     <motion.h1
-                        className="text-5xl md:text-7xl font-bold tracking-tighter text-white"
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
@@ -87,7 +88,7 @@ export default function AthletesPage() {
                         Athletes Showcase
                     </motion.h1>
                     <motion.p
-                        className="mt-4 text-lg md:text-xl text-gray-200 max-w-2xl"
+                        className="mt-4 text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl px-4"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
@@ -98,7 +99,7 @@ export default function AthletesPage() {
             </div>
 
             {/* Content Section */}
-            <div className="relative z-10  pt-10">
+            <div className="relative z-10 pt-10">
                 <div className="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
                 {/* Stunts Grid */}
                 <motion.div
@@ -108,7 +109,7 @@ export default function AthletesPage() {
                     whileInView="show"
                     viewport={{ once: true }}
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
                         {People.map((stunt, index) => (
                             <motion.div
                                 key={index}
@@ -127,6 +128,7 @@ export default function AthletesPage() {
                                     src={stunt.Picture || "/athletes/placeholder.png"}
                                     alt={stunt.Name}
                                     className='absolute inset-0 w-full h-full object-cover'
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 20vw"
                                 />
                                 <ProgressiveBlur
                                     className='pointer-events-none absolute bottom-0 left-0 h-[75%] w-full'
@@ -148,7 +150,7 @@ export default function AthletesPage() {
                                     transition={{ duration: 0.2, ease: 'easeOut' }}
                                 >
                                     <div className='flex flex-col items-start gap-0 px-5 py-4'>
-                                        <p className='text-xl capitalize font-medium text-white'>{stunt.Name}</p>
+                                        <p className='text-lg sm:text-xl capitalize font-medium text-white'>{stunt.Name}</p>
                                     </div>
                                 </motion.div>
                             </motion.div>
@@ -158,43 +160,43 @@ export default function AthletesPage() {
             </div>
 
             <Dialog open={!!selectedStunt} onOpenChange={closeModal}>
-                <DialogContent className="max-w-[1200px] w-[90vw] bg-white/5  backdrop-blur-md border-none">
-                    <div className="grid grid-cols-[500px_1fr] gap-12 p-8">
-                        {selectedStunt?.Picture && (
-                            <div className="relative aspect-square">
-                                <Image
-                                    src={selectedStunt.Picture}
-                                    alt={selectedStunt.Name}
-                                    fill
-                                    className="rounded-lg object-cover"
-                                />
-                            </div>
-                        )}
-                        <div className="flex flex-col">
-                            <DialogHeader>
-                                <DialogTitle className="text-4xl font-bold mb-6 text-white">
-                                    {selectedStunt?.Name}
-                                </DialogTitle>
-                            </DialogHeader>
-                            <div className="space-y-6">
-                                <p className="text-gray-200 text-xl leading-relaxed">
-                                    {selectedStunt?.Description}
-                                </p>
-                                <div className="grid grid-cols-2 gap-6">
-                                    <div>
-                                        <p className="text-lg text-gray-400">Age</p>
-                                        <p className="font-medium text-white text-xl">{selectedStunt?.Age}</p>
-                                    </div>
-                                    <div>
-                                        <p className="text-lg text-gray-400">Type</p>
-                                        <p className="font-medium text-white text-xl capitalize">{selectedStunt?.Type}</p>
+                    <DialogContent className="max-w-[1200px] w-[90vw] h-[90vh] sm:h-auto bg-white/5 backdrop-blur-md border-none">
+                        <div className="grid grid-cols-1 sm:grid-cols-[300px_1fr] lg:grid-cols-[500px_1fr] gap-6 sm:gap-12 p-4 sm:p-8 overflow-y-auto">
+                            {selectedStunt?.Picture && (
+                                <div className="relative aspect-square w-full sm:w-auto">
+                                    <Image
+                                        src={selectedStunt.Picture}
+                                        alt={selectedStunt.Name}
+                                        fill
+                                        className="rounded-lg object-cover"
+                                    />
+                                </div>
+                            )}
+                            <div className="flex flex-col">
+                                <DialogHeader>
+                                    <DialogTitle className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-white">
+                                        {selectedStunt?.Name}
+                                    </DialogTitle>
+                                </DialogHeader>
+                                <div className="space-y-4 sm:space-y-6">
+                                    <p className="text-gray-200 text-base sm:text-lg lg:text-xl leading-relaxed">
+                                        {selectedStunt?.Description}
+                                    </p>
+                                    <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                                        <div>
+                                            <p className="text-base sm:text-lg text-gray-400">Age</p>
+                                            <p className="font-medium text-white text-lg sm:text-xl">{selectedStunt?.Age}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-base sm:text-lg text-gray-400">Type</p>
+                                            <p className="font-medium text-white text-lg sm:text-xl capitalize">{selectedStunt?.Type}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </DialogContent>
-            </Dialog>
+                    </DialogContent>
+                </Dialog>
 
             <Footer1 />
         </div>
