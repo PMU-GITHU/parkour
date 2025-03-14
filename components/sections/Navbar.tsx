@@ -52,21 +52,26 @@ export default function Navbar() {
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
-
     const handleLinkClick = (e: React.MouseEvent, link: string) => {
         e.preventDefault()
         setCrossedState(false)
         
         if (link.startsWith('/#')) {
-            const targetId = link.split('#')[1]
-            const targetElement = document.getElementById(targetId)
-            if (targetElement) {
-                setTimeout(() => {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    })
-                }, 200) // Delay to allow menu to close first
+            // Check if we're on the homepage
+            if (window.location.pathname === '/') {
+                const targetId = link.split('#')[1]
+                const targetElement = document.getElementById(targetId)
+                if (targetElement) {
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        })
+                    }, 200) // Delay to allow menu to close first
+                }
+            } else {
+                // If not on homepage, redirect to homepage with hash
+                window.location.href = `/${link.replace(/^\//, '')}`
             }
         } else {
             window.location.href = link

@@ -14,6 +14,7 @@ const data = [
         title: "Personal Training & Coaching",
         Description: "Our certified personal trainers provide customized parkour and freerunning coaching for all levels, from beginners to advanced athletes.",
         badge: "Training",
+        image: "/services/pr.JPG",
         items: [
             "One-on-one private sessions for personalized skill development",
             "Group classes and workshops for a fun and engaging learning experience",
@@ -25,6 +26,7 @@ const data = [
         title: "Professional Cast for Media Productions",
         Description: "We provide highly skilled parkour and freerunning athletes to elevate your media projects, bringing dynamic movement and authenticity.",
         badge: "Media",
+        image: "/services/cast-min.jpg",
         items: [
             "Music videos – Bringing dynamic movement and acrobatics to create visually stunning scenes",
             "Commercials & advertisements – Enhancing brand storytelling with thrilling urban action",
@@ -36,6 +38,7 @@ const data = [
         title: "Stunt Performers & Action Doubles",
         Description: "Our elite stunt team specializes in executing high-risk falls, complex movements, and action sequences to ensure cinematic realism.",
         badge: "Stunts",
+        image: "/services/stunts-min.jpg",
         items: [
             "Professional stunt doubles who can replicate your main character's movements",
             "High-risk falls, roof jumps, and impact stunts performed by experienced athletes",
@@ -47,6 +50,7 @@ const data = [
         title: "Live Parkour & Acrobatic Performances",
         Description: "Experience the thrill of high-energy parkour shows with our professional athletes delivering jaw-dropping performances for audiences.",
         badge: "Live Shows",
+        image: "/services/live-min.jpg",
         items: [
             "Corporate events & brand activations – Engaging audiences with spectacular movement",
             "Festivals & public shows – Captivating crowds with adrenaline-fueled performances",
@@ -85,7 +89,7 @@ export default function Services() {
                         {data.map((service, index) => (
                             <div
                                 key={index}
-                                className={`relative overflow-hidden rounded-xl ${
+                                className={`relative overflow-hidden rounded-xl border border-gray-500/40 ${
                                     index === 0 || index === 3 ? 
                                     'h-[400px] lg:col-span-2' : 
                                     'h-[400px]'
@@ -93,12 +97,12 @@ export default function Services() {
                                 onClick={() => handleCardClick(service)}
                             >
                                 <img
-                                    src='https://cdn.cosmos.so/2d774ea0-4b4f-4d9f-a634-6b6c5a130e91?format=jpeg'
+                                    src={service.image}
                                     alt={service.title}
                                     className='absolute inset-0 object-cover size-full'
                                 />
                                 <ProgressiveBlur
-                                    className='pointer-events-none absolute bottom-0 left-0 h-[75%] w-full'
+                                    className='pointer-events-none absolute bottom-0 left-0 h-[75%] bg-gradient-to-t from-black/40 to-transparent w-full'
                                     blurIntensity={0.5}
                                     animate={'visible'}
                                     variants={{
@@ -164,7 +168,7 @@ export default function Services() {
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.1 }}
-                                    src='https://cdn.cosmos.so/2d774ea0-4b4f-4d9f-a634-6b6c5a130e91?format=jpeg'
+                                    src={selectedService?.image}
                                     alt={selectedService?.title}
                                     className="w-full md:w-1/2 h-auto aspect-square object-cover rounded-lg"
                                 />

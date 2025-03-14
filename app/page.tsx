@@ -1,3 +1,4 @@
+"use client"
 import AboutUS from "@/components/sections/AboutUS";
 import { Athletes } from "@/components/sections/Athletes";
 import { CoachesPage } from "@/components/sections/Coachs";
@@ -12,11 +13,13 @@ import Services from "@/components/sections/Services";
 import Tutoring from "@/components/sections/Tuturing";
 import Particles from "@/components/sprinkles";
 import { Badge } from "@/components/ui/badge";
+import { useEffect } from "react";
 
 export default function Home() {
+ 
 
   return (
-    <main className="">
+    <main>
       <Hero />
       <div className="size-full relative bg-black">
         <div className=" h-40 w-full bg-gradient-to-b from-black to-transparent absolute top-0 z-30" />
