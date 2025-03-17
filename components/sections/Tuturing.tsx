@@ -6,19 +6,9 @@ import { Badge } from "@/components/ui/badge";
 
 const YoutubeVideos = [
     {
-        title: "Parkour Basics: Rolls and Landings",
+        title: "Parkour warm-ups",
         embedUrl: "https://www.youtube.com/embed/FD1rXJkWxss?si=jezm8ZvbwvZPWlri",
-        description: "Learn the fundamental techniques of parkour rolls and safe landings"
-    },
-    {
-        title: "Wall Running Techniques",
-        embedUrl: "https://www.youtube.com/embed/FD1rXJkWxss?si=jezm8ZvbwvZPWlri",
-        description: "Master the art of wall running with proper form and technique"
-    },
-    {
-        title: "Precision Jumps Tutorial",
-        embedUrl: "https://www.youtube.com/embed/FD1rXJkWxss?si=jezm8ZvbwvZPWlri",
-        description: "Improve your accuracy with precision jumps in parkour"
+        description: "Learn how to properly warm up before a parkour session"
     }
 ]
 
