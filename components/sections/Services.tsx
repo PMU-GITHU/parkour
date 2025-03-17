@@ -59,6 +59,7 @@ const data = [
         ]
     },
 ]
+
 export default function Services() {
     const [selectedService, setSelectedService] = useState<typeof data[number] | null>(null);
 
@@ -77,7 +78,7 @@ export default function Services() {
                     <div className="flex gap-4 flex-col items-center justify-center">
                         <Badge className='bg-orange-500 cursor-pointer z-30 hover:bg-white text-white hover:text-orange-500'>Platform</Badge>
                         <div className="flex gap-2 flex-col items-center justify-center">
-                            <h2 className="text-3xl md:text-5xl text-white tracking-tighter max-w-xl font-regular text-left">
+                            <h2 className="text-3xl md:text-5xl text-white tracking-tighter max-w-xl font-semibold uppercase text-left">
                                 Our Services
                             </h2>
                             <p className="text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-muted text-center">
@@ -89,7 +90,7 @@ export default function Services() {
                         {data.map((service, index) => (
                             <div
                                 key={index}
-                                className={`relative overflow-hidden rounded-xl border border-gray-500/40 ${
+                                className={`relative group overflow-hidden rounded-xl border border-gray-500/40 ${
                                     index === 0 || index === 3 ? 
                                     'h-[400px] lg:col-span-2' : 
                                     'h-[400px]'
@@ -99,7 +100,7 @@ export default function Services() {
                                 <img
                                     src={service.image}
                                     alt={service.title}
-                                    className='absolute inset-0 object-cover size-full'
+                                    className='absolute hover:scale-105 transition-all duration-300 inset-0 object-cover size-full'
                                 />
                                 <ProgressiveBlur
                                     className='pointer-events-none absolute bottom-0 left-0 h-[75%] bg-gradient-to-t from-black/70 to-transparent w-full'

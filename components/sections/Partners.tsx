@@ -35,12 +35,12 @@ export const Partners = () => {
         {
             id: 1,
             image: "/partners/partner1.png",
-            url: "https://google.com"
+            url: "https://www.instagram.com/pmu_association"
         },
         {
             id: 2,
             image: "/partners/partner2.png",
-            url: "https://google.com"
+            url: "https://www.instagram.com/itsmeyasu"
         },
     ]
 
