@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Mona_Sans } from "next/font/google";
 import "./globals.css";
-import { Footer1 } from "@/components/sections/Footer";
-
+import { Toaster } from "sonner";
 
 
 const monaSans = Mona_Sans({
@@ -26,6 +25,7 @@ export default function RootLayout({
         className={`${monaSans.className} overflow-x-hidden  antialiased`}
       >
 
+        <Toaster />
         {children}
       </body>
      

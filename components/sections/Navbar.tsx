@@ -81,7 +81,7 @@ export default function Navbar() {
     return (
         <>
             <motion.div
-                className={`fixed text-2xl font-bold text-white z-50 top-0 left-0 flex justify-around w-full p-4 transition-all duration-300 ${
+                className={`fixed text-2xl font-bold text-white z-[60] top-0 left-0 flex justify-around w-full p-4 transition-all duration-300 ${
                     isScrolled && !crossed ? 'backdrop-blur-lg bg-black/50' : 'bg-transparent'
                 }`}
                 initial={{ opacity: 0, y: -50 }}
@@ -150,7 +150,7 @@ export default function Navbar() {
             <AnimatePresence>
                 {crossed && (
                     <motion.div
-                        className="fixed inset-0 flex-col bg-black z-40 flex items-center justify-center"
+                        className="fixed inset-0 flex-col bg-black z-50 flex items-center justify-center"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
