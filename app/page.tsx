@@ -12,9 +12,9 @@ import Services from "@/components/sections/Services";
 import Tutoring from "@/components/sections/Tuturing";
 import Particles from "@/components/sprinkles";
 import { Badge } from "@/components/ui/badge";
- 
+
 export default function Home() {
- 
+
 
   return (
     <main>
@@ -41,27 +41,7 @@ export default function Home() {
         <Athletes />
         <CoachesPage />
         <Merch />
-        <div className="w-full   flex flex-col items-center z-30 justify-center">
-          <div className="flex gap-4 flex-col mx-auto items-center justify-center">
-            <div>
-              <Badge className='bg-orange-500 hover:bg-orange-900'>Locations</Badge>
-            </div>
-            <div className="flex gap-2 flex-col items-center justify-center">
-              <h2 className="text-3xl text-white md:text-5xl tracking-tighter max-w-xl font-regular text-left">
-                Come Train With Us
-              </h2>
-              <p className="text-lg max-w-xl  lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground text-center">
-                {
-                  `
-            
-            Marrakech's diverse training spots offer safe, dynamic environments for athletes to push their limits.
-            `
-                }
-              </p>
-            </div>
-          </div>
-          <MapView />
-        </div>
+        <MapView />
         <Cta />
         <Tutoring />
         <ContactUS />

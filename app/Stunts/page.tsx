@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import {  motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { Footer1 } from '@/components/sections/Footer'
 import Navbar from '@/components/sections/Navbar'
 import People from '@/lib/data'
@@ -9,26 +9,26 @@ import { Badge } from "@/components/ui/badge"
 import HoverExpand from '@/components/ui/hover-expand'
 import { StuntsAthletes } from '@/components/sections/StuntsAthletes'
 import { Cta } from '@/components/sections/CTA'
- 
+
 const YoutubeVideos = [
     {
-         embedUrl: "https://www.youtube.com/embed/WXsXWrW1h9c", 
-    },
-    { 
-        embedUrl: "https://www.youtube.com/embed/NlQcok4O59A", 
-    },
-    { 
-        embedUrl: "https://www.youtube.com/embed/L0bO74dGfJk", 
+        embedUrl: "https://www.youtube.com/embed/WXsXWrW1h9c",
     },
     {
-       
+        embedUrl: "https://www.youtube.com/embed/NlQcok4O59A",
+    },
+    {
+        embedUrl: "https://www.youtube.com/embed/L0bO74dGfJk",
+    },
+    {
+
         embedUrl: "https://www.youtube.com/embed/dwCcPPHKXqw?si=fhGggG9duKhA-M8H",
-         
+
     },
     {
-       
+
         embedUrl: "https://www.youtube.com/embed/-qYlKq-RYUk?si=o_5L61rVX3Cvyyw-",
-         
+
     }
 ]
 
@@ -169,7 +169,7 @@ export default function StuntsPage() {
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen
                                     />
-                                     
+
                                 </motion.div>
                             ))}
                         </motion.div>
@@ -177,7 +177,33 @@ export default function StuntsPage() {
                 </div>
             </div>
 
-            <Cta />
+            <div className="w-full py-20 bg-black lg:py-40">
+                <div className="container relative rounded-md mx-auto h-[600px] overflow-hidden">
+                    <video 
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover"
+                    >
+                        <source src="./stunt.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                    <div className="flex flex-col text-center z-20 w-full rounded-md p-4 lg:p-14 gap-8 items-center bg-black/20 backdrop-blur-sm h-full justify-center">
+                        <div>
+                            <Badge className="bg-white/20 text-white backdrop-blur-sm border-white/20">Action Redefined</Badge>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <h3 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-orange-400">
+                                Pushing Boundaries
+                            </h3>
+                            <p className="text-lg leading-relaxed tracking-tight text-white/80 max-w-xl">
+                                {"With a team of 63+ elite athletes, we specialize in creating jaw-dropping parkour performances. From high-octane stunts to precision movement, we bring your creative vision to life with unmatched skill and artistry."}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <Footer1 />
         </div>
     )

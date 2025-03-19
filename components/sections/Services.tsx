@@ -135,9 +135,8 @@ export default function Services() {
                     </div>
                 </div>
             </div>
-
             <Dialog open={!!selectedService} onOpenChange={closeModal}>
-                <DialogContent className="max-w-[1200px] w-[90vw] bg-transparent border-none">
+                <DialogContent className="max-w-[1200px] w-[90vw] z-50 bg-transparent border-none">
                     <VisuallyHidden>
                         <DialogTitle>{selectedService?.title}</DialogTitle>
                     </VisuallyHidden>
@@ -154,7 +153,7 @@ export default function Services() {
                             transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                             className="fixed inset-0 flex items-center justify-center p-4"
                         >
-                            <motion.div className="max-w-[1200px] w-[90vw] bg-white/5 backdrop-blur-xl rounded-xl p-8 relative flex flex-col md:flex-row gap-8">
+                            <motion.div className="max-w-[1200px] w-[90vw] bg-white/5 backdrop-blur-xl rounded-xl p-8 relative flex flex-col md:flex-row gap-8 h-[80vh] overflow-y-auto">
                                 <motion.button
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
