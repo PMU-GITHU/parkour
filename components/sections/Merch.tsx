@@ -1,16 +1,14 @@
 "use client"
-import { ItemCard } from "@/components/ui/Item-card"
-import { AutoSliderBanner } from "@/components/ui/auto-slider-banner"
-import { Products } from "@/lib/MerchData"
-import { Button } from "../ui/button"
+import { ItemCard } from "@/components/ui/Item-card" 
+import { Products } from "@/lib/MerchData" 
 import AnimatedNumberCountdown from "../ui/animated-number-countdown"
 
 export default function Merch() {
 
 
   return (
-    <main className="flex min-h-screen flex-col relative items-center justify-between bg-black py-20">
-      <div className="absolute flex flex-col justify-center items-center size-full bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_900px_at_50%_200px,transparent,black)] backdrop-blur-md z-20">
+    <main className="flex min-h-screen flex-col relative items-center justify-between bg-black py-20  ">
+      <div className="absolute flex flex-col justify-center items-center size-full bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_bottom,transparent,black)] backdrop-blur-md z-20">
 
         <h1 className="text-4xl md:text-6xl max-w- 2 xl font-bold text-center text-cyan-50">
           Stay Tuned For Our first Drop

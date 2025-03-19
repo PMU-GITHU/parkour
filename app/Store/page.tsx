@@ -1,9 +1,7 @@
 "use client"
-import Navbar from '@/components/sections/Navbar'
-import AnimatedNumberCountdown from '@/components/ui/animated-number-countdown'
+import Navbar from '@/components/sections/Navbar' 
 import { AutoSliderBanner } from '@/components/ui/auto-slider-banner-coming-soon'
-import { Button } from '@/components/ui/button'
- 
+  
 import React from 'react'
 
 export default function Store() {

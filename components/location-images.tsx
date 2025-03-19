@@ -27,9 +27,11 @@ export function LocationsIMages({ location }: DirectionsMenuProps) {
         <Dialog>
             <DialogTrigger asChild>
                 <Button
-                    variant="ghost" size="sm" className="gap-x-2 group text-white text-xl flex justify-center items-center 
-                    hover:text-orange-500
-                hover:bg-transparent">
+                    variant="ghost" 
+                    size="sm" 
+                    className="gap-x-2 group text-white text-base sm:text-xl flex justify-center items-center 
+                    hover:text-orange-500 hover:bg-transparent"
+                >
                     <motion.div
                         initial={{ width: 0, height: 0 }}
                         whileHover={{ width: 10, height: 10 }}
@@ -40,17 +42,19 @@ export function LocationsIMages({ location }: DirectionsMenuProps) {
                     View Image 
                 </Button>
             </DialogTrigger>
-            <DialogContent className="w-[80vw] h-[80vh] max-w-none max-h-none p-0 bg-black border-0">
+            <DialogContent className="w-[90vw] h-[50vh] sm:w-[80vw] sm:h-[70vh] md:w-[80vw] md:h-[80vh] max-w-none max-h-none p-0 bg-black border-0">
                 <VisuallyHidden>
                     <DialogTitle>Image of {location.name}</DialogTitle>
                 </VisuallyHidden>
-                <div className="w-full h-full">
+                <div className="w-full h-full relative">
                     <Image
                         src={location.image || "/placeholder.svg"}
                         alt={location.name}
-                        layout="fill"
-                        objectFit="cover"
-                        
+                        fill
+                        sizes="(max-width: 768px) 90vw, 80vw"
+                        style={{
+                            objectFit: 'cover'
+                        }}
                         className="rounded-lg"
                     />
                 </div>
