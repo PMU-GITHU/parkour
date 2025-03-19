@@ -189,12 +189,12 @@ export default function StuntsPage() {
                         <source src="./stunt.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
-                    <div className="flex flex-col text-center z-20 w-full rounded-md p-4 lg:p-14 gap-8 items-center bg-black/20 backdrop-blur-md h-full justify-center">
+                    <div className="flex flex-col text-center z-20 w-full rounded-md p-4 lg:p-14 gap-8 items-center bg-black/20 backdrop-blur-sm h-full justify-center">
                         <div>
                             <Badge className="bg-white/20 text-white backdrop-blur-sm border-white/20">Action Redefined</Badge>
                         </div>
                         <div className="flex flex-col gap-2">
-                            <h3 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-white">
+                            <h3 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-orange-400">
                                 Pushing Boundaries
                             </h3>
                             <p className="text-lg leading-relaxed tracking-tight text-white/80 max-w-xl">
