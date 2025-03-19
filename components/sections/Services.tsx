@@ -158,7 +158,7 @@ export default function Services() {
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
                                     onClick={closeModal}
-                                    className="sticky top-0 right-4 p-2 text-white hover:bg-white/10 rounded-full ml-auto"
+                                    className="absolute top-4 right-4 p-2 text-white hover:bg-white/10 rounded-full"
                                 >
                                     <VisuallyHidden>Close modal</VisuallyHidden>
                                     <XIcon className="w-6 h-6" />

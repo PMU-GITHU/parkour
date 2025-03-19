@@ -92,7 +92,7 @@ export function MapView() {
             Come Train With Us
           </h2>
           <p className="text-base sm:text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground">
-            Marrakech's diverse training spots offer safe, dynamic environments for athletes to push their limits.
+            {"Marrakech's diverse training spots offer safe, dynamic environments for athletes to push their limits."}
           </p>
         </div>
       </div>

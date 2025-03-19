@@ -41,9 +41,7 @@ export default function Home() {
         <Athletes />
         <CoachesPage />
         <Merch />
-
         <MapView />
-
         <Cta />
         <Tutoring />
         <ContactUS />
