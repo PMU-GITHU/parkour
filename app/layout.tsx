@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: "Parkour Maroc",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
       },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Parkour Maroc",
     description: "Official website of Parkour Maroc - A community for all parkour enthusiasts. Join us to learn, train, and connect with fellow tracers.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
   },
   metadataBase: new URL("https://parkourmaroc.com"),
   alternates: {
