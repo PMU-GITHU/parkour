@@ -1,6 +1,5 @@
 "use client"
 import React from 'react'
-import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 import { Badge } from "@/components/ui/badge";
 
@@ -9,8 +8,14 @@ const YoutubeVideos = [
         title: "Parkour warm-ups",
         embedUrl: "https://www.youtube.com/embed/FD1rXJkWxss?si=jezm8ZvbwvZPWlri",
         description: "Learn how to properly warm up before a parkour session"
+    },
+    {
+        title: "Parkour basics",
+        embedUrl: "https://www.youtube.com/embed/8KPHD0dy2Aw",
+        description: "Master the basic parkour techniques"
     }
 ]
+
 
 const container = {
     hidden: { opacity: 0 },

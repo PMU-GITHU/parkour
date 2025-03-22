@@ -1,14 +1,11 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import { TextEffect } from '../ui/text-effect'
 import { useInView } from 'react-intersection-observer'
 import { cn } from '@/lib/utils'
 import { Badge } from "@/components/ui/badge";
 import People, { Person } from '@/lib/data'
-import { BackgroundBeams } from '../ui/background-beams'
-import BeamsBackground from '../kokonutui/beams-background'
-
 export function CoachesPage() {
     const { ref, inView } = useInView({
         triggerOnce: true,
