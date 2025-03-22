@@ -15,7 +15,7 @@ export default function Merch() {
         </h1>
 
         <AnimatedNumberCountdown
-          endDate={new Date("2025-12-31")}
+          endDate={new Date("2025-5-10")}
           className="my-4 text-white"
         />
 

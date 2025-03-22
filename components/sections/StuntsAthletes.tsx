@@ -28,7 +28,6 @@ interface StuntsAthletesProps {
     features?: Feature[];
 }
 
-
 const StuntsAthletes = ({
     heading = "Our Stunts Athletes",
     description = "Our elite stunt athletes specialize in high-risk movements, from rooftop jumps to fight choreography. They bring action to life in films, commercials, and live performances with unmatched skill and precision.",
@@ -48,6 +47,13 @@ const StuntsAthletes = ({
     })),
 
 }: StuntsAthletesProps) => {
+    const handleContactClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+   
+            window.location.href = '/#contact';
+        
+    };
+
     return (
         <section
             className="py-32 w-full   bg-black text-white">
@@ -61,10 +67,14 @@ const StuntsAthletes = ({
                             {description}
                         </p>
                         <div className="mt-8 flex flex-col gap-4 lg:flex-row">
-                            <Button className="gap-2 w-3/4 text-black" variant={"outline"} size="lg" asChild>
-                            <Link href={buttons.primary.url}>{buttons.primary.text}</Link>
+                            <Button 
+                                className="gap-2 w-3/4 text-black" 
+                                variant={"outline"} 
+                                size="lg"
+                                onClick={handleContactClick}
+                            >
+                                {buttons.primary.text}
                             </Button>
-
                         </div>
                     </div>
                     <div className="flex flex-col gap-12 md:gap-20">
@@ -102,8 +112,6 @@ const StuntsAthletes = ({
                                     </div>
                                     <p className="text-muted-foreground">{feature.description}</p>
                                 </div>
-
-
                             </div>
                         ))}
                     </div>
