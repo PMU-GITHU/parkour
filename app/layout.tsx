@@ -12,7 +12,7 @@ const monaSans = Mona_Sans({
 
  
 export const metadata: Metadata = {
-  title: "Parkour Maroc",
+  title: "Parkour Maroc - Parkour Morocco Community",
   description: "Official website of Parkour Maroc - A community for all parkour enthusiasts. Join us to learn, train, and connect with fellow tracers.",
   keywords: ["parkour", "freerunning", "community", "movement", "fitness", "parkour maroc","parkour morocco", "Morocco", "Maroc" ,"Sport Morocco", "tracing", "urban sports", "extreme sports", "acrobatics", "parkour training", "parkour community", "parkour events", "parkour workshops", "parkour athletes", "parkour videos", "parkour tutorials", "parkour spots", "parkour gym", "parkour culture", "parkour lifestyle", "parkour challenges", "parkour competitions", "parkour Morocco community", "parkour Maroc events"],
   openGraph: {
