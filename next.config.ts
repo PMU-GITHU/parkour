@@ -1,6 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.parkourmaroc.com' }],
+        destination: 'https://parkourmaroc.com/:path*',
+        permanent: true
+      }
+    ]
+  }
+  ,
+
   images: {
     remotePatterns: [
       {
@@ -10,12 +22,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: '64.media.tumblr.com',
-      
       },
       {
         protocol: 'https',
         hostname: 'i.pinimg.com',
-      
       },
       {
         protocol: 'https',
@@ -25,7 +35,6 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'lh3.googleusercontent.com',
       },
-       
     ],
   },
 };
