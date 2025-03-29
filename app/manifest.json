@@ -1,11 +1,6 @@
 {
-  "name": "Parkour Maroc - Parkour Morocco Community",
+  "name": "Parkour Maroc",
   "short_name": "ParkourMaroc",
-  "description": "Official website of Parkour Maroc - A community for all parkour enthusiasts. Join us to learn, train, and connect with fellow tracers.",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -19,5 +14,8 @@
       "type": "image/png",
       "purpose": "maskable"
     }
-  ]
+  ],
+  "theme_color": "#000000",
+  "background_color": "#060505",
+  "display": "standalone"
 }

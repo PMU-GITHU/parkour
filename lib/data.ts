@@ -56,7 +56,7 @@ const AthletesPic = [
         Name: "Othman Noukrati",
         Age: "27 y.o",
         Description: "I have been exploring movement since I was 10 years old, beginning with climbing trees. Discovering the parkour community in 2014, I became a student of movement, embracing both parkour and free running.",
-        Picture: "/AthletesPic/DSC08370.jpg",
+        Picture: "/AthletesPic/IMG_2591.JPG",
         MoveTrick: null,
     },
     {
@@ -304,7 +304,7 @@ Beyond my work in film, I’ve helped build a supportive community for parkour e
         I've worked in more than 45 projects that are filmed in Morocco and outside Morocco and I've been nominated for outstanding stunt performance in Gladiator II in 2025.
         I'm specialist in parkour, martial arts, high falls, swords fights, stunt driving and more .`, Picture: "/AthletesPic/gb.jpg", MoveTrick: null
     },
-    { ID: 7, imdbLink: null, youtube: "https://youtube.com/shorts/o-vQThwpc5U?si=j31z6vVEJ6TukRfw", instagram: null, Name: 'Othman Noukrati', Age: '27 y.o', Description: "I started my journey of exploring the world of movement in 10. I was climbing trees and doing the art of displacement. After that, I learned that the parkour community was rather large. Then I started exploring more with Companionship and free running as well in 2014. Until now, I am still a student of movement.", Picture: "/AthletesPic/DSC08370.jpg" },
+    { ID: 7, imdbLink: null, youtube: "https://youtube.com/shorts/o-vQThwpc5U?si=j31z6vVEJ6TukRfw", instagram: null, Name: 'Othman Noukrati', Age: '27 y.o', Description: "I started my journey of exploring the world of movement in 10. I was climbing trees and doing the art of displacement. After that, I learned that the parkour community was rather large. Then I started exploring more with Companionship and free running as well in 2014. Until now, I am still a student of movement.", Picture: "/AthletesPic/IMG_2591.JPG" },
     { ID: 8, imdbLink: null, youtube: null, instagram: "https://www.instagram.com/arradiii/", Name: 'Arradi Abderrahim', Age: '29 y.o', Description: "This journey has helped me see the world in a different way and has inspired creativity in my lifestyle.\nMy goal is to explore the world through parkour and keep my body moving, no matter where I go.\nit’s about discovering new perspectives and staying connected to the world around me. Through parkour, I find freedom, creativity, and inspiration every day.", Picture: "/AthletesPic/DSC06848.jpg", MoveTrick: null },
 ]
 

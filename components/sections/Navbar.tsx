@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { TextEffect } from '../ui/text-effect'
 import Noise from '../ui/noise'
+import Link from 'next/link'
 
 const navitems = [
     {
@@ -55,7 +56,7 @@ export default function Navbar() {
     const handleLinkClick = (e: React.MouseEvent, link: string) => {
         e.preventDefault()
         setCrossedState(false)
-        
+
         if (link.startsWith('/#')) {
             // Check if we're on the homepage
             if (window.location.pathname === '/') {
@@ -81,23 +82,15 @@ export default function Navbar() {
     return (
         <>
             <motion.div
-                className={`fixed text-2xl font-bold text-white z-[60] top-0 left-0 flex justify-around w-full p-4 transition-all duration-300 ${
-                    isScrolled && !crossed ? 'backdrop-blur-lg bg-black/50' : 'bg-transparent'
-                }`}
+                className={`fixed text-2xl font-bold text-white z-[60] top-0 left-0 flex justify-around w-full p-4 transition-all duration-300 ${isScrolled && !crossed ? 'backdrop-blur-lg bg-black/50' : 'bg-transparent'
+                    }`}
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
             >
-                <motion.h1
-                    onClick={() => window.location.href = '/'}
-                    className='text-4xl cursor-pointer uppercase font-bold text-white'
-                    initial={{ opacity: 0, rotateX: 90, y: 10 }}
-                    animate={{ opacity: 1, rotateX: 0, y: 0 }}
-                    transition={{ duration: 0.2, delay: 0.5 }}
-                >
-                    Parkour <span className='text-orange-500'> MA</span>
-                </motion.h1>
-
+                <Link href="/">
+                    <img src="PFM02.svg" alt="" className='w-20 h-20 scale-150 object-cover   ' />
+                </Link>
                 <motion.div className="flex items-center gap-4">
                     <motion.span
                         className="text-white text-sm uppercase"
@@ -169,7 +162,7 @@ export default function Navbar() {
                                     id={`navitem-${item.name.toLowerCase().replace(' ', '-')}`}
                                     key={item.name}
                                     href={item.link}
-                                    
+
                                     className={`text-white text-4xl [@media(max-height:800px)]:text-5xl sm:text-5xl md:text-6xl   lg:text-7xl xl:text-8xl font-bold uppercase hover:text-orange-500 duration-500 ease-in-out px-4 py-2 sm:px-6 sm:py-3
                                          flex items-end justify-center gap-2
                                         `}
